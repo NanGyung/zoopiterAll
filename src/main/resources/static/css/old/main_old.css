@@ -1,0 +1,268 @@
+@charset "utf-8";
+@import 'layout.css';
+
+/* top-banner */
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+.wrap .main__top-banner {
+  width: 100% -50px;
+  aspect-ratio: 5 / 3;
+  background-color: #ffd88f;
+  margin-top: 20px;
+  position: relative;
+}
+
+.main__top-banner .banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.banner img {
+  max-width: 100%;
+  aspect-ratio: 5 / 3;
+}
+
+.main__top-banner .slick-dots {
+  bottom: 25px;
+}
+
+/* main1 */
+.wrap .main__pet-hospital {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../img/img_hospital-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+.main__pet-hospital::after {
+  content: '';
+  opacity: 0.3;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #fff;
+}
+
+.pet-hospital__item1 {
+  width: 30%;
+  height: 60%;
+  margin-left: 5%;
+}
+
+.pet-hospital__title {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+
+.pet-hospital__button {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  max-width: 300px;
+  height: 40px;
+  background-color: #e1e2e1;
+  line-height: 40px;
+}
+
+.pet-hospital__button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.pet-hospital__button:hover a {
+  background-color: #f29a2e;
+  color: #ffffff;
+}
+
+.pet-hospital__item2 {
+  width: 60%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.pet-hospital__contents {
+  width: 50%;
+  height: 45%;
+  margin: 10px 0px;
+}
+
+.pet-hospital__contents.content2 {
+  margin-top: 40%;
+}
+
+.pet-hospital__contents img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5%;
+}
+
+/* main2 */
+.wrap .main__review {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f29a2e;
+  color: #f1f1f1;
+  padding: 5%;
+  background-image: url(../img/img_bird01.png);
+  background-position: right 0 top 0;
+  background-repeat: no-repeat;
+}
+
+.review_items {
+  width: 100%;
+  height: 100%;
+}
+
+.review_items.r-item1 {
+  max-width: 45%;
+  height: 45%;
+}
+
+.review_items.r-item2 {
+  width: 100%;
+  height: 30%;
+  margin: 40px 20px 0 20px;
+}
+
+.review__title {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1em;
+}
+
+.review__button {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  color: #333333;
+  background-color: #f1f1f1;
+  line-height: 40px;
+  margin: 6em 0;
+}
+
+.review__button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.review__button:hover {
+  color: #f29a2e;
+}
+
+.review_slider {
+  width: 100%;
+  height: 400px;
+}
+.slick-slider {
+  height: 100%;
+}
+
+.review_slider img {
+  max-width: 410px;
+  max-height: 400px;
+  margin: 0px 10px;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 5px rgba(63, 63, 63, 0.199);
+}
+
+.slick-list {
+  padding: 0 20px;
+}
+
+/* main3 */
+.wrap .main__community {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(250, 250, 246);
+  padding: 5%;
+  background-image: linear-gradient(
+      to top,
+      rgba(250, 250, 246, 0) 10%,
+      rgba(250, 250, 246, 0.25) 25%,
+      rgba(250, 250, 246, 0.5) 50%,
+      rgba(250, 250, 246, 0.75) 75%,
+      rgb(250, 250, 246) 100%
+    ),
+    url(../img/img_c-background.png);
+  background-repeat: no-repeat;
+  background-size: 70% 100%;
+  background-position: left;
+}
+
+.community {
+  width: 100%;
+  height: 100%;
+}
+
+.community.c-item1 {
+  width: 70%;
+  height: 45%;
+}
+
+.community.c-item2 {
+  width: 50%;
+  height: 100%;
+  margin-left: 100px;
+
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 10%,
+      rgba(255, 255, 255, 0.25) 25%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.75) 75%,
+      rgb(255, 255, 255) 100%
+    ),
+    url(../img/img_community00.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.community_title {
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1em;
+}
+
+.community__button {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  background-color: #e1e2e1;
+  line-height: 40px;
+  margin: 6em 0;
+  box-shadow: 5px 5px 5px #55555588;
+}
+
+.community__button a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.community__button:hover {
+  background-color: #f29a2e;
+  color: #f5f5f6;
+}

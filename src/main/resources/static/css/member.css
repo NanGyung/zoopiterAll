@@ -1,0 +1,342 @@
+@charset "utf-8";
+@import 'theme/layout.css';
+
+/* 전체 레이아웃 */
+
+.wrap {
+  display: grid;
+  grid-template-columns: 3fr minmax(320px, 1024px) 3fr;
+  grid-template-rows: max-content;
+  grid-template-areas:
+      'l mn r'
+      'l mn r'
+      'l mn r'
+      'l mn r';
+  color: var(--color-main-text);
+}
+
+.mn-l, .hd-l, .fg-l, .ft-l {
+  grid-area: l;
+  background-color: var(--color-main-background);
+}
+
+.mn-r,
+.hd-r,
+.fg-r,
+.ft-r {
+  grid-area: r;
+  background-color: var(--color-main-background);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: calc(122.4vh - 220px);
+  min-height: 500px;
+  background-color: var(--color-background);
+  padding: 30px;
+}
+
+.hd, .fg-banner, .container, .ft{
+  grid-area: mn;
+}
+
+/* 약관동의 member_join */
+#mainTitle a {
+  width: 100%;
+}
+
+#mainTitle a:hover {
+  opacity: .5;
+}
+
+
+/* member_signup 회원가입양식, member_login 로그인 공통 레이아웃 */
+main section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+main section form {
+  width: 300px;
+  padding: 32px;
+}
+
+main section form li{
+  margin: 20px 0;
+}
+
+section form label {
+  font-size: 1rem;
+  color: gray;
+  font-weight: normal;
+}
+
+main form input {
+  margin: 0.3px;
+  font-size: 1rem;
+}
+
+/* 회원가입 양식 member_signup */
+.joinForm form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#loginBtn{
+  width: 100%;
+  height: 2.4rem;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-main-text);
+}
+
+/* 로그인페이지 member_login */
+#login {
+  width: 100%;
+}
+
+
+
+/* input태그 */
+
+main form input[type='text' i],
+main form input[type='password' i] {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: inherit;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: #000 2px solid;
+}
+
+input:focus {
+  outline: none;
+}
+
+.findUser__menu {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: inherit;
+}
+
+.findUser__menu--ul {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.findUser__menu--ul li,
+.findUser__menu--ul span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+.err {
+  color: red;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  margin: 0.3px;
+  font-size: 1rem;
+}
+input[type='text' i],
+input[type='password' i],
+input[type='email' i],
+input[type='number' i] {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: inherit;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: #000 2px solid;
+}
+
+dialog {
+  border: none;
+  border-radius: 5%;
+  box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 50%;
+}
+dialog::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(255, 214, 95, 0.2);
+}
+
+dialog .contents {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.7;
+}
+
+dialog li {
+  display: flex;
+  flex-direction: row;
+}
+
+/* member_join */
+
+#mainTitle{
+  display: flex;
+  margin: 1.2rem 0;
+}
+#mainTitle i{
+  color: var(--color-main-point2);
+  margin-right: 10px;
+}
+
+.joinbox{
+  display: flex;
+  margin-top: 1.6rem;
+  background-color: var(--color-background);
+}
+
+.scroll-boxs {
+  display: flex;
+  margin: 1.2rem 0;
+}
+
+.scroll-box{
+    height: 28rem; 
+    width: 22rem;
+    padding: 1.2em;
+    overflow: auto;
+    border: 1px solid var(--color-grey1);
+}
+.scroll-box1{
+  margin-right: 20px;
+}
+
+.scroll-boxs.box2{
+  display: flex;
+  justify-content: space-around;
+}
+.box2__info1{
+  margin-right: 10rem;
+}
+.box2__info2 {
+  margin-right: 10px;
+}
+
+ .joinbox__title p{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold
+}
+
+#joinboxContents{
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.joinbox__btns {
+  display: flex;
+}
+
+.joinbox__btns__choice1 {
+  flex: 5;
+  display: flex;
+}
+
+.joinbox__btns__choice2 {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.joinbox__title{
+  display: flex;
+  width: 40rem;
+}
+
+.joinbox__title__owner{
+  flex: 5;
+  margin-right: 20px;
+}
+
+.joinbox__title__hospital{
+  flex: 5;
+}
+
+/* 회원가입버튼 */
+.signBtn{
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-grey1) ;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  /* color: var(--color-main-text); */
+}
+
+.signUp{
+  margin: 0 5px;
+}
+
+.signUpH{
+  margin: 0 5px; 
+}
+
+#scroll-checkbox {
+  margin-right: 10px;
+}
+
+#scroll-checkbox2{
+  margin: 0 10px;
+}
+
+/* member_signup */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main form input {
+  margin: 0.3px;
+  font-size: 1rem;
+}
+
+main form input[type='text' i],
+main form input[type='password' i],
+main form input[type='email' i],
+main form input[type='number' i] {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: inherit;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: #000 2px solid;
+}
+
+input:focus {
+  outline: none;
+}

@@ -1,0 +1,374 @@
+@charset "utf-8";
+@import 'theme/layout.css';
+* {
+  /* outline: 1px solid green; */
+}
+
+.hd-r {
+  border-bottom: 2px solid var(--color-grey1);
+}
+
+.container {
+  background-color: var(--color-background);
+  padding: 30px;
+}
+
+p {
+  margin: 0;
+}
+
+/* 메인 컨텐츠 */
+.main-list {
+  grid-area: main-list;
+  width: 100%;
+}
+.main-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.main-list .list .main {
+  /* height: 50px; */
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 20px 0;
+}
+.main-list .list .selectBox {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  border-radius: 4px;
+  border: 2px solid #f29a2e;
+  font-size: 16px;
+}
+.main-list .list .selectBox .select {
+  width: inherit;
+  /* display: none; */
+  height: inherit;
+  background: transparent;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3;
+  /* opacity: 0; */
+  appearance: none; /* 기록 */
+}
+
+.main-list .list .selectBox .select option {
+  background: #ffd65f;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 16px;
+}
+.main-list .list .selectBox .icoArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 35px;
+  height: inherit;
+  border-left: 2px solid #ffd65f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectBox .icoArrow i {
+  transition: 0.3s;
+}
+
+.selectBox .select:focus-visible + .icoArrow i {
+  transform: rotate(180deg);
+}
+
+.sort {
+  grid-area: sort;
+  width: 100%;
+  height: 80px;
+}
+
+.sort .search .left .tag {
+  margin-left: 10px;
+}
+
+.sort .left .tag {
+  margin-right: 1.2rem;
+}
+
+@media screen and (width <=800px) {
+  .sort .left .tag {
+    margin-right: 0.5rem;
+  }
+}
+
+.sort .search {
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+.sort .left {
+  width: auto;
+  border-radius: 4px;
+  outline: 3px solid #f29a2e;
+  display: flex;
+  height: 50px;
+}
+.sort .search .left .selectBox select:nth-of-type(1) {
+  margin-right: 30px;
+}
+
+.sort div {
+  /* display: flex; */
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  /* margin-left: 10px; */
+}
+.sort .search {
+  display: flex;
+}
+.sort .search .input input {
+  height: 20px;
+  /* width: 70%; */
+  font-size: 15px;
+  border-radius: 4px;
+  border: 2px solid var(--color-main-point);
+  background-color: var(--color-background2);
+}
+.sort .search .input {
+  display: flex;
+  /* margin-right: 50px; */
+}
+.sort .search .input button {
+  margin-left: 10px;
+  width: 4rem;
+  padding: 3px;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.sort .search .left .selectBox {
+  margin-right: 20px;
+}
+
+/* select option */
+
+.sort .search .left .selectBox {
+  position: relative;
+  /* width: 130px; */
+  height: 25px;
+  /* border-radius: 4px; */
+  /* border: 2px solid #f29a2e; */
+  font-size: 0.9rem;
+}
+.sort .search .left .selectBox .select {
+  width: inherit;
+  /* display: none; */
+  height: inherit;
+  background: transparent;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3;
+  /* opacity: 0; */
+  appearance: none; /* 기록 */
+}
+
+.sort .search .left .selectBox .select option {
+  background: #ffd65f;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 16px;
+}
+.sort .search .left .selectBox .icoArrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 35px;
+  height: inherit;
+  border-left: 2px solid #ffd65f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#checkBtn {
+  width: 4rem;
+  border: 1px solid #ffd65f;
+  border-radius: 2rem;
+  background-color: #ffd65f;
+  margin-left: 1.2rem;
+}
+
+.sort .search .left .selectBox .icoArrow i {
+  width: 50%;
+  transition: 0.3s;
+}
+
+/* .sort .search .left .selectBox .icoArrow img {
+  width: 50%;
+  transition: 0.3s;
+} */
+
+.sort .search .left .selectBox .select:focus + .icoArrow img {
+  transform: rotate(180deg);
+}
+
+.tag-list {
+  grid-area: tag-list;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.tag-list .tag {
+  background-color: #ffd65f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.8rem;
+  height: 1.6rem;
+  padding: 5px;
+  margin-right: 1.2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+}
+
+.tag-list .tag p {
+  font-size: 1rem;
+  color: var(--color-main-text);
+}
+
+.main-nick {
+  grid-area: main-nick;
+  width: 100%;
+  /* height: 280px; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.main-nick .post {
+  flex-direction: row;
+  padding: 20px;
+  outline: 3px solid #ffd65f;
+
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.main-nick .post .info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.main-nick .post .info .pro {
+  display: flex;
+  flex-direction: row;
+}
+.main-nick .post .info .pro .img {
+  margin-right: 10px;
+}
+/* 기본프로필 사진 */
+.main-nick .post .info .pro .img i {
+  font-size: 4rem;
+}
+
+.main-nick .post .info .pro .name div {
+  padding: 5px;
+}
+.main-nick .post .info .sub {
+  display: flex;
+  flex-direction: column;
+}
+.main-nick .post .info .sub .num {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.sub .num .num-cnt {
+  display: flex;
+  margin-right: 10px;
+}
+
+.sub .num .num-cnt p {
+  font-weight: bold;
+}
+
+.sub .num .fa-heart {
+  color: var(--color-main-point2);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* .main-nick .post .info .sub .num .img {
+  margin-right: 0;
+} */
+
+.main-nick .tag {
+  background-color: #ffd65f;
+  text-align: center;
+  border-radius: 4rem;
+  padding: 0.4rem;
+}
+.main-nick .post .preview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.main-nick .post .preview .img {
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid var(--color-main-background);
+  background-color: var(--color-main-background);
+}
+
+.main-nick .post .preview .img i {
+  font-size: 6rem;
+  color: var(--color-background);
+}
+
+.main-nick .post .preview .review {
+  flex-direction: column;
+  text-align: center;
+  margin-left: 10px;
+}
+.main-nick .post .preview .review .hos {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.page {
+  grid-area: page;
+  width: 100%;
+  text-align: center;
+}
+.page button {
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
+}
+.page .prevBtn,
+.page .nextBtn {
+  background-color: var(--color-grey1);
+}
+
+.page .pageBtns {
+  background-color: var(--color-main-background);
+}
+.pageBtns.active {
+  background-color: var(--color-main-point);
+}

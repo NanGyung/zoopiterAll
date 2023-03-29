@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="메인화면" />
+  <meta name="keywords" content="pet hospital search" />
+  <meta name="author" content="2팀" />
+  <!--  폰트 어썸 : 로고 -->
+  <script
+      src="https://kit.fontawesome.com/6631aa96e6.js"
+      crossorigin="anonymous"
+  ></script>
+  <!--  회원가입 css -->
+  <link rel="stylesheet" href="../css/member.css" />
+  <title>회원가입 양식</title>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="hd-l"></div>
+  <header class="hd"></header>
+  <div class="hd-r"></div>
+
+  <div class="fg-l"></div>
+  <figure class="fg-banner"></figure>
+  <div class="fg-r"></div>
+
+  <div class="mn-l"></div>
+  <main class="container">
+    <div id="mainTitle">
+      <i class="fa-solid fa-dog fa-2x"></i>
+      <h2 style="font-weight: bold">
+        <a href="index.html" th:href="@{/}">슬기로운 반려생활</a>
+      </h2>
+    </div>
+    <section class="joinForm">
+      <form action="" method="post" th:object="${joinForm}">
+        <ul class="joinForm__list">
+          <li class="joinForm__list__items">
+            <label for="nickname" th:field="*{userNick}">닉네임</label
+            ><input type="text" id="nickname" />
+          </li>
+          <li class="joinForm__list__items">
+            <label for="id">아이디</label><input type="text" id="id" />
+          </li>
+          <li class="joinForm__list__items">
+            <label for="pw">비밀번호</label
+            ><input type="password" id="pw" />
+          </li>
+          <li class="joinForm__list__items">
+            <label for="pwCkeck">비밀번호확인</label
+            ><input type="password" id="pwCkeck" />
+          </li>
+          <li class="joinForm__list__items">
+            <label for="email">이메일</label
+            ><input type="email" id="email" />
+          </li>
+          <li class="joinForm__list__items">
+            <label for="num">이메일인증번호</label
+            ><input type="number" id="num" />
+          </li>
+        </ul>
+        <button type="button" id="loginBtn">회원가입</button>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="loginPopup">
+    <div class="contents">
+      <div>회원가입완료</div>
+      <button type="button" id="loginGo">
+        <a href="./member_login.html" onclick="location">로그인하러~</a>
+      </button>
+    </div>
+  </dialog>
+  <div class="mn-r"></div>
+
+  <div class="ft-l"></div>
+  <footer class="ft"></footer>
+  <div class="ft-r"></div>
+</div>
+</body>
+<script>
+    const $loginBtn = document.getElementById('loginBtn');
+    const $loginPopup = document.getElementById('loginPopup');
+    $loginBtn.addEventListener('click', e => {
+      $loginPopup.showModal();
+    });
+  </script>
+</html>

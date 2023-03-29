@@ -1,0 +1,388 @@
+@charset "utf-8";
+@import 'reset.css';
+@import 'font.css';
+@import 'color.css';
+
+/* 전체 폰트, 글색상 */
+body {
+  font-family: 'NanumSquare';
+  color: var(--color-main-text);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 푸터 개인정보처리방침 모달창 */
+#ft-info1,
+#ft-info2,
+#ft-info3 {
+  border: none;
+  border-radius: 5%;
+  box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.2);
+  width: 40rem;
+  height: 28rem;
+  padding: 40px;
+}
+
+
+#info1Txt,
+#info2Txt,
+#info3Txt {
+  height: 340px;
+}
+
+#info1Txt,
+#info2Txt{
+  overflow: scroll; 
+}
+
+.ft-info1__title,
+.ft-info2__title,
+.ft-info3__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+#closeBtn1,
+#closeBtn2,
+#closeBtn3 {
+  border: none;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  color: var(--color-background);
+  background-color: var(--color-main-point2);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#ft-info1 h3,
+#ft-info2 h3,
+#ft-info3 h3 {
+  text-align: center;
+}
+
+/* header */
+.hd {
+  grid-area: hd;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+  transition-property: width, height;
+  transition: 1s, 1s;
+}
+
+.hd__menu {
+  position: relative;
+  height: 100%;
+}
+
+.hd__menu__list1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.hd__menu__list1__item a {
+  display: contents;
+  width: 100%;
+  height: 100%;
+}
+
+.hd__menu__list1__item {
+  position: relative;
+  width: 140px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 2em;
+}
+
+.hd__menu__list1 .hd__menu__list1__item {
+  font-size: 1.1rem;
+}
+
+/* 1뎁스 메뉴 호버 시 나타나는 아이콘 */
+.list1-item1:hover::after,
+.list1-item2:hover::after,
+.list1-item3:hover::after {
+  content: '\f578';
+  font-family: FontAwesome;
+  color: var(--color-main-point2);
+}
+
+.hd__menu__list1__item .hd__menu__list1__item__submenu {
+  display: none;
+  width: 100%;
+  position: absolute;
+  background-color: var(--color-background2);
+  color: var(--color-main-text);
+  z-index: 100;
+  border-radius: 20px;
+  transition-property: display;
+  transition-duration: 2s, 1s;
+}
+
+.hd__menu__list1__item__submenu li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.hd__menu__list1__item__submenu li a:hover {
+  color: var(--color-main-point2);
+}
+
+.hd__menu__list1__item .hd__menu__list1__item__submenu {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hd__menu__list1__item.active .hd__menu__list1__item__submenu {
+  position: absolute;
+  z-index: 100;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  /* font-family: "jua"; */
+  font-size: 1.2em;
+}
+
+#logo a {
+  display: contents;
+  width: 100%;
+  height: 100%;
+}
+
+#logo a:hover {
+  color: var(--color-grey3);
+}
+
+#logo i {
+  color: var(--color-main-point2);
+}
+
+#logo h3 {
+  margin: 0 10px;
+}
+
+.list1-item4 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list1-item4 a:hover {
+  color: var(--color-main-point2);
+}
+
+#hamburger {
+  display: none;
+}
+
+/* 반응형 header */
+
+@media screen and (width >=568px) {
+  .hd__menu__list1__item:hover .hd__menu__list1__item__submenu {
+    display: block;
+  }
+}
+
+@media screen and (width < 880px) {
+  #logo {
+    width: 150px;
+    text-align: center;
+  }
+}
+
+@media screen and (width < 680px) {
+  #logo h3 {
+    display: none;
+  }
+
+  #logo {
+    justify-content: center;
+  }
+}
+
+@media screen and (width <=590px) {
+  .list1-item1:hover::after,
+  .list1-item2:hover::after,
+  .list1-item3:hover::after {
+    content: none;
+  }
+
+  .list1-item1:hover .list1-item2:hover .list1-item3:hover {
+    color: var(--color-main-point2);
+  }
+
+  .hd__menu__list1__item {
+    display: none;
+  }
+
+  .hd-r {
+    display: none;
+  }
+
+  .hd__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #logo {
+    width: 150px;
+    text-align: center;
+  }
+
+  #logo h3 {
+    display: inline-block;
+  }
+
+  #join {
+    display: none;
+  }
+
+  #hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media screen and (width > 590px) {
+  #join {
+    display: flex;
+  }
+}
+
+.hd.active {
+  background-color: var(--color-main-background);
+}
+
+.hd__menu.active {
+  align-items: flex-start;
+  height: 35rem;
+}
+
+.hd__menu.active #hamburger {
+  margin-top: 50px;
+}
+
+.hd__menu__list1.active {
+  flex-direction: column;
+  width: 300px;
+}
+
+.hd__menu__list1__item.active {
+  display: block;
+}
+
+/* 햄버거 메뉴 상태에서 상위 메뉴 호버 시 나타나는 아이콘  안보이게*/
+.hd__menu__list1__item.active .list1-item1:hover::after,
+.hd__menu__list1__item.active .list1-item2:hover::after,
+.hd__menu__list1__item.active .list1-item3:hover::after {
+  content: none;
+}
+
+.hd__menu__list1__item.active .hd__menu__list1__item__submenu {
+  display: block;
+  position: relative;
+}
+
+/* .hd__menu__list1__item__submenu.active {
+  display: block;
+  position: relative;
+} */
+
+/* footer */
+.wrap .ft {
+  grid-area: ft;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-grey6);
+  color: var(--color-grey1);
+  text-align: center;
+}
+
+.wrap .ft a{
+  cursor: pointer;
+}
+
+.wrap .ft .ft__buttons {
+  max-width: 100%;
+}
+
+.ft__buttons {
+  width: 12.5em;
+  height: 30px;
+  font-size: 0.9rem;
+  line-height: 30px;
+}
+
+.ft__mid-area .ft__buttons:hover a {
+  background-color: rgba(245, 245, 245, 0.678);
+  color: var(--color-main-text);
+}
+
+.f-item1 a:hover::after {
+  content: '\f578';
+  font-family: FontAwesome;
+  color: rgba(245, 245, 245, 0.678);
+  margin-left: 10px;
+}
+
+.ft__buttons.f-item1 {
+  margin: 20px auto 10px auto;
+}
+
+.ft__buttons a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.ft__mid-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.ft__mid-area .ft__buttons {
+  width: 280px;
+  margin: 30px 5px;
+}
+
+.ft__info {
+  margin-bottom: 10px;
+}
+
+.ft__info p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4em;
+  color: var(--color-grey4);
+}
+
+.ft__copy {
+  font-size: 0.8rem;
+  color: var(--color-grey3);
+  margin-bottom: 10px;
+}
+
+/* 반응형 footer */
+@media screen and (width < 880px) {
+  .ft .ft__mid-area {
+    flex-direction: column;
+  }
+}

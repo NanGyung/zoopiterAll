@@ -1,0 +1,212 @@
+@charset "utf-8";
+@import '../theme/common.css';
+
+body {
+  background-color: #ffd88f;
+  font-family: 'NanumSquare';
+  color: var(--color-main-text);
+  margin: 0 auto;
+}
+
+/* 전체 레이아웃 */
+.wrap {
+  display: grid;
+  grid-template-rows: 0.5fr auto 6fr 8fr 6fr 3fr;
+  grid-template-columns: 1fr minmax(320px, 1500px) 1fr;
+  grid-template-areas:
+    '. gnb .'
+    '. banner .'
+    '. main1 .'
+    '. main2 .'
+    '. main3 .'
+    '. footer .';
+}
+
+/* GNB */
+
+.wrap .header__menu {
+  display: flex;
+  padding-top: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.wrap .header__menu .menu {
+  width: 100%;
+  margin: 12px 0;
+  font-weight: bold;
+  position: sticky;
+  z-index: 3;
+}
+
+#gnbLogo {
+  font-family: 'Jua', sans-serif;
+  font-weight: 400;
+  size: 28px;
+  color: #f26d3d;
+  text-align: center;
+  display: flex;
+}
+#gnbLogo h1 {
+  font-size: 22px;
+  margin-left: 12px;
+}
+#gnbLogo a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#gnbLogo:hover {
+  color: #f29a2e;
+}
+
+.menu .menu__list1 {
+  padding: 0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  line-height: 2em;
+}
+
+.menu__list1 .menu__item1 {
+  width: 100%;
+  height: 50px;
+  margin: 0 10px;
+  line-height: 2rem;
+}
+
+.menu__list1 a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu__list1 .menu__item1:hover a {
+  color: #ff9a1e;
+}
+
+.menu .menu__list2 {
+  display: none;
+  position: absolute;
+  margin: 0;
+}
+.menu__list2 .menu__item2 {
+  background-color: rgba(255, 255, 255, 0.637);
+}
+.menu__list2 .menu__item2:hover a {
+  color: #f26d3d;
+}
+
+.menu__list1 .menu__item1:hover .menu__list2 {
+  display: block;
+}
+
+.menu__item:hover .menu__list2 li {
+  display: block;
+  margin: 0;
+}
+
+.menu__list2 li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu__list1 .menu__middle {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.menu__list1 .menu__middle li {
+  width: 200px;
+}
+
+.menu__list1 .menu__item1 {
+  width: 200px;
+}
+
+.menu__right {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.menu__right .menu__item1 {
+  width: 70px;
+  margin: 0 4px;
+}
+.menu__right .menu__item1:nth-of-type(1) a {
+  text-align: right;
+}
+.menu__right .menu__item1:nth-of-type(2) a {
+  text-align: left;
+}
+
+/* FNB*/
+.wrap .footer__fnb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8af55;
+  background-image: url(../img/img_bird02.png);
+  background-position: left 0 bottom 0%;
+  background-size: 20% 40%;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #f1f1f1;
+}
+.wrap .footer__fnb .fnb {
+  max-width: 100%;
+}
+
+.fnb__buttons {
+  width: 12.5em;
+  height: 30px;
+  font-size: 0.9rem;
+  background-color: #f26d3d;
+  line-height: 30px;
+}
+.fnb__buttons:hover a {
+  background-color: #ffc47b;
+}
+
+.fnb__buttons.f-item1 {
+  margin: 50px auto 10px auto;
+}
+
+.fnb__buttons a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.fnb-mid-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.fnb-mid-area .fnb__buttons {
+  width: 280px;
+  margin: 30px 5px;
+}
+
+.fnb__info {
+  margin-top: 30px;
+}
+
+.fnb__info p {
+  margin: 0;
+  line-height: 1.4em;
+}
+
+.fnb__copy {
+  margin-top: 30px;
+  font-size: 0.9rem;
+}
