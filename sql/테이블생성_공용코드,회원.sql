@@ -73,7 +73,7 @@ alter table member modify user_email constraint member_user_email_nn not null;
 desc member;
 
 
---샘플 데이터(수정전)
+--샘플 데이터
 insert into member (USER_ID , USER_PW, USER_NICK, USER_EMAIL, GUBUN)
     values('test1', '12341234', '뜨아', 'test1@kh.com', 'M0101');
 
