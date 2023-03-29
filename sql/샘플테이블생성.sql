@@ -54,32 +54,31 @@ commit;
 --회원
 -------
 create table member (
-    ADMIN_ID    number,         --내부 관리 아이디
-    GUBUN       varchar2(9),    --회원구분(병원,일반)
-    USER_ID     varchar2(15),   --로긴 아이디
-    USER_PW     varchar2(12),   --로긴 비밀번호
-    USER_NICK   varchar2(30),   --별칭
-    USER_EMAIL  varchar2(300),  --취미
-    region      varchar2(30),   --지역
-    gubun       varchar2(11)   default 'M0101', --회원구분 (일반,우수,관리자..)
-    pic         blob,            --사진
-    cdate       timestamp default systimestamp,         --생성일시
-    udate       timestamp default systimestamp          --수정일시
+    ADMIN_ID               number,         --관리자 아이디
+    U_PET_ID               number,         --내부관리용 아이디
+    GUBUN                  varchar2(9) default 'M0101',    --회원구분(병원,일반) 일반회원 관리코드 M0101, 병원회원 관리코드 H0101
+    USER_ID                varchar2(15),   --로긴 아이디
+    USER_PW                varchar2(12),   --로긴 비밀번호
+    USER_NICK              varchar2(30),   --별칭
+    USER_EMAIL             varchar2(300),  --이메일
+    USER_PHOTO             BLOB,       --사진
+    USER_CREATE_DATE       timestamp default systimestamp,         --생성일시
+    USER_UPDATE            timestamp default systimestamp          --수정일시
 );
 --기본키생성
-alter table member add Constraint member_member_id_pk primary key (member_id);
-
+alter table member add Constraint member_user_id_pk primary key (user_id);
 --제약조건
 alter table member add constraint member_gubun_fk
     foreign key(gubun) references code(code_id);
-alter table member modify email constraint member_passwd_uk unique;
-alter table member modify email constraint member_passwd_nn not null;
-alter table member add constraint member_gender_ck check (gender in ('남자','여자'));
+--alter table member modify email constraint member_passwd_uk unique;
+--alter table member modify email constraint member_passwd_nn not null;
+--alter table member add constraint member_gender_ck check (gender in ('남자','여자'));
 
 --시퀀스 생성
-create sequence member_member_id_seq;
+create sequence member_user_id_seq;
 desc member;
 
+--샘플 데이터(수정전)
 insert into member (member_id,email,passwd,nickname,gender,hobby,region,gubun)
     values(member_member_id_seq.nextval, 'test1@kh.com', '1234', '테스터1','남자','골프,독서','울산', 'M0101');
 insert into member (member_id,email,passwd,nickname,gender,hobby,region,gubun)
