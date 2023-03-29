@@ -1,0 +1,12 @@
+drop user c##zoopiter;
+--계정생성
+CREATE USER c##zoopiter IDENTIFIED BY zoopiter1234
+    DEFAULT TABLESPACE users
+    TEMPORARY TABLESPACE temp
+    PROFILE DEFAULT;
+--권한부여
+GRANT CONNECT, RESOURCE TO c##zoopiter;
+GRANT CREATE VIEW, CREATE SYNONYM TO c##zoopiter;
+GRANT UNLIMITED TABLESPACE TO c##zoopiter;
+--락 풀기
+ALTER USER c##zoopiter ACCOUNT UNLOCK;
