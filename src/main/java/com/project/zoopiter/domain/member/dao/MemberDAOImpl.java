@@ -6,8 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -41,12 +39,8 @@ public class MemberDAOImpl implements MemberDAO {
     sql.append(" :gubun) ");
 
     SqlParameterSource param = new BeanPropertySqlParameterSource(member);
-    KeyHolder keyHolder = new GeneratedKeyHolder();
-    template.update(sql.toString(),param,keyHolder,new String[]{"user_id"});
+    template.update(sql.toString(),param);
 
-    String userId = String.valueOf(keyHolder.getKey());
-
-    member.setUserId(userId);
     return member;
   }
 
