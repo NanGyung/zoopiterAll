@@ -7,8 +7,6 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -42,8 +40,13 @@ public class MemberDAOImpl implements MemberDAO {
     sql.append(" :gubun) ");
 
     SqlParameterSource param = new BeanPropertySqlParameterSource(member);
+<<<<<<< HEAD
     KeyHolder keyHolder = new GeneratedKeyHolder();
     template.update(sql.toString(),param);
+=======
+    template.update(sql.toString(),param);
+
+>>>>>>> 516b34bd0e936d7e7e7b8edd7233e0e118ffe3cb
     return member;
   }
 
