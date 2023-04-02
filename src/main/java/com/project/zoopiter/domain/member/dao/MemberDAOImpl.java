@@ -4,6 +4,7 @@ import com.project.zoopiter.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -42,11 +43,7 @@ public class MemberDAOImpl implements MemberDAO {
 
     SqlParameterSource param = new BeanPropertySqlParameterSource(member);
     KeyHolder keyHolder = new GeneratedKeyHolder();
-    template.update(sql.toString(),param,keyHolder,new String[]{"user_id"});
-
-    String userId = String.valueOf(keyHolder.getKey());
-
-    member.setUserId(userId);
+    template.update(sql.toString(),param);
     return member;
   }
 
@@ -58,6 +55,14 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public void update(String userId, Member member) {
+    StringBuffer sql = new StringBuffer();
+    sql.append("update member set user_nick = ? where user_id = ? ");
+
+    SqlParameterSource param = new MapSqlParameterSource()
+        .addValue("nickname",member.getUserNick())
+        .addValue("userId",userId);
+
+    template.update(sql.toString(),param);
 
   }
 
@@ -69,6 +74,8 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public Optional<Member> findbyEmail(String userEmail) {
+    StringBuffer sql = new StringBuffer();
+    sql.append("select user_id, user_pw, user_email, user_nick from member where user_email = :email ");
     return Optional.empty();
   }
 

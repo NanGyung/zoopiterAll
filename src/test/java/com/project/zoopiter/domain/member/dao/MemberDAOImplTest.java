@@ -17,18 +17,18 @@ public class MemberDAOImplTest {
   @DisplayName("가입")
   void save(){
     Member member = new Member();
-    member.setUserEmail("member22@gmail.com");
     member.setUserId("member2");
-    member.setUserPw("member4321");
-    member.setUserNick("회원4");
+    member.setUserPw("member1234");
+    member.setUserEmail("member2@gmail.com");
+    member.setUserNick("별칭2");
     member.setGubun("M0101");
 
     Member savedMember = memberDAO.save(member);
 
-    Assertions.assertThat(savedMember.getUserId()).isEqualTo("member1");
+    Assertions.assertThat(savedMember.getUserId()).isEqualTo("member2");
     Assertions.assertThat(savedMember.getUserPw()).isEqualTo("member1234");
-    Assertions.assertThat(savedMember.getUserEmail()).isEqualTo("member97@gmail.com");
-    Assertions.assertThat(savedMember.getUserNick()).isEqualTo("회원3");
+    Assertions.assertThat(savedMember.getUserEmail()).isEqualTo("member2@gmail.com");
+    Assertions.assertThat(savedMember.getUserNick()).isEqualTo("별칭2");
     Assertions.assertThat(savedMember.getGubun()).isEqualTo("M0101");
 
 

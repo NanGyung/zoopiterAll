@@ -29,7 +29,7 @@
       <nav class="hd__menu">
         <ul class="hd__menu__list1">
           <li id="logo">
-            <a href="index.html">
+            <a href="index.html" th:href="@{/}">
               <i class="fa-solid fa-dog fa-2x"></i>
               <h3>슬기로운 반려생활</h3>
             </a>
@@ -51,7 +51,7 @@
             <a href="./mypage_main.html">마이페이지</a>
           </li>
           <div class="hd__menu__list1__item list1-item4" id="join">
-            <li><a href="./member_login.html">로그인</a></li>
+            <li><a href="./member_login.html" th:href="@{/}">로그인</a></li>
             |
             <li><a href="./member_join.html" th:href="@{/members/add}">회원가입</a></li>
           </div>
@@ -392,7 +392,7 @@
     <div class="ft-l"></div>
     <footer class="ft">
       <div class="ft__buttons f-item1">
-        <a href="index.html">슬기로운 반려생활</a>
+        <a href="index.html" th:href="@{/}">슬기로운 반려생활</a>
       </div>
       <div class="ft__mid-area">
         <div class="ft__buttons f-item2">

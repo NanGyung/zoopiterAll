@@ -340,3 +340,10 @@ main form input[type='number' i] {
 input:focus {
   outline: none;
 }
+
+.information {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
