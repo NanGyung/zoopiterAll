@@ -64,7 +64,7 @@ desc member;
 
 --샘플 데이터
 insert into member (USER_ID , USER_PW, USER_NICK, USER_EMAIL, GUBUN)
-    values('test1', '12341234', '별칭1', 'test1@kh.com', 'M0101');
+    values('test1', 'test1234', '별칭1', 'test1@gamil.com', 'M0101');
 
 select * from member;
 commit;
@@ -78,7 +78,7 @@ create table hmember (
     H_NAME                 varchar2(30),   --병원 상호명
     H_EMAIL                varchar2(40),   --이메일
     H_TEL                  varchar2(30),   --병원 연락처
-    H_TIME                 varchar2(40),   --진료시간
+    H_TIME                 varchar2(5000), --진료시간
     H_INFO                 varchar2(60),   --편의시설정보
     H_ADDINFO              varchar2(60),   --병원기타정보
     H_PLIST                varchar2(40),   --진료동물
@@ -97,6 +97,29 @@ alter table hmember add Constraint hmember_h_email unique (h_email);
 alter table hmember modify h_pw constraint hmember_h_pw_nn not null;
 alter table hmember modify h_email constraint hmember_h_email_nn not null;
 alter table hmember modify h_name constraint hmember_h_name_nn not null;
+
+--샘플 데이터
+insert into member (H_ID , H_PW, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PLIST, GUBUN)
+    values(
+    'htest1', 
+    'htest1234', 
+    '메이 동물병원', 
+    'htest1@gamil.com', 
+    '211-3375', 
+    '월요일	오전 9:30~오후 7:00
+    화요일	오전 9:30~오후 7:00
+    수요일
+    (식목일)
+    오전 9:30~오후 7:00
+    시간이 달라질 수 있음
+    목요일	오전 9:30~오후 7:00
+    금요일	오전 9:30~오후 7:00
+    토요일	오전 9:30~오후 4:00
+    일요일	휴무일', 
+    '주차, 무선 인터넷, 반려동물 동반', 
+    '강아지, 고양이 전문 병원입니다!', 
+    '강아지, 고양이', 
+    'M0101');
 
 desc hmember;
 commit;

@@ -6,6 +6,8 @@
 
 ### 진행기록
 
-- MemberDAOImplTest 오류 뜸 : org.springframework.dao.DataRetrievalFailureException: The generated key type is not supported. Unable to cast [java.lang.String] to [java.lang.Number].
-  - MemberDAOImpl 47번째 줄이 문제인듯, 아이디 값 타입, DB 테이블에는 문제없이 insert 됨.
-    -> generated key로 memberId를 가져오지 않고 해결 (필요없음)
+- 회원가입 : MemberDAOImplTest 오류 -> generated key로 memberId를 가져오지 않고 해결 (필요없음)
+
+- 04.03: sql 테이블 생성 및 샘플 데이터 파일 업데이트
+  - 동물병원 데이터는 공공데이터 사이트의 csv 파일 데이터입니다.(울산광역시, 부산광역시 만 사용)
+  - 해당파일 : sql 폴더 -> 테이블 생성.sql, 동물병원 데이터 insert.sql
