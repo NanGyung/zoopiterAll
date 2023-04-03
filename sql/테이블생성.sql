@@ -53,6 +53,9 @@ insert into code (code_id,decode,pcode_id,useyn) values ('P0101','미접종','P01',
 insert into code (code_id,decode,pcode_id,useyn) values ('P0102','접종 전','P01','Y');
 insert into code (code_id,decode,pcode_id,useyn) values ('P0103','접종 중','P01','Y');
 insert into code (code_id,decode,pcode_id,useyn) values ('P0104','접종 완료','P01','Y');
+insert into code (code_id,decode,pcode_id,useyn) values ('B01','게시판',null,'Y');
+insert into code (code_id,decode,pcode_id,useyn) values ('B0101','병원후기','B01','Y');
+insert into code (code_id,decode,pcode_id,useyn) values ('B0102','커뮤니티','B01','Y');
 commit;
 
 -------
@@ -387,12 +390,16 @@ CREATE TABLE BBSH(
   BH_ATTACH          BLOB,            --첨부파일
   BH_HNAME           VARCHAR2(52),    --병원이름
   BH_HIT             NUMBER default 0,--조회수
+  BH_GUBUN           VARCHAR2(15) default 'B0101',      --게시판 구분(병원후기: B0101, 커뮤니티: B0102)
   USER_NICK          varchar2(30),    --일반회원 닉네임
   BH_CDATE           timestamp default systimestamp,   --작성일
   BH_UDATE           timestamp default systimestamp    --수정일 
 );
 --기본키생성
 alter table BBSH add Constraint BBSH_BBSH_ID_pk primary key (BBSH_ID);
+--외래키
+alter table BBSH add constraint  BBSH_BH_GUBUN_fk
+    foreign key(BH_GUBUN) references  code(code_id);
 
 --제약조건
 alter table BBSH modify BH_TITLE constraint BBSH_BH_TITLE_nn not null;
@@ -401,12 +408,13 @@ alter table BBSH modify USER_NICK constraint BBSH_USER_NICK_nn not null;
 alter table BBSH modify BH_HIT constraint BBSH_BH_HIT_nn not null;
 -- not null 제약조건은 add 대신 modify 명령문 사용
 
+
 --시퀀스 생성
 create sequence BBSH_BBSH_ID_seq;
 
 --샘플데이터 of BBSH
-insert into BBSH (BBSH_ID , BH_TITLE, BH_CONTENT, PET_TYPE, BH_HNAME, USER_NICK)
-    values(BBSH_BBSH_ID_seq.nextval, '병원후기제목1', '병원후기본문1', '고양이', '메이 동물병원', '별칭1');
+insert into BBSH (BBSH_ID , BH_TITLE, BH_CONTENT, PET_TYPE, BH_HNAME, BH_GUBUN, USER_NICK)
+    values(BBSH_BBSH_ID_seq.nextval, '병원후기제목1', '병원후기본문1', '고양이', '메이 동물병원', 'B0101','별칭1');
 
 COMMIT;
 
@@ -459,13 +467,17 @@ CREATE TABLE BBSC(
   BC_HIT             NUMBER  default 0,   --조회수
   BC_LIKE            NUMBER  default 0,   --좋아요수
   BC_PUBLIC          CHAR(1) default 'N', --게시글 공개여부(공개: Y, 비공개: N)
+  BC_GUBUN           VARCHAR2(15) default 'B0102',      --게시판 구분(병원후기: B0101, 커뮤니티: B0102)
   USER_NICK          varchar2(30),        --일반회원 닉네임
   BC_CDATE           timestamp default systimestamp,   --작성일
   BC_UDATE           timestamp default systimestamp    --수정일 
 );
 --기본키생성
 alter table BBSC add Constraint BBSC_BBSC_ID_pk primary key (BBSC_ID);
-
+--외래키
+alter table BBSC add constraint  BBSC_BC_GUBUN_fk
+    foreign key(BC_GUBUN) references code(code_id);
+    
 --제약조건
 alter table BBSC modify BC_TITLE constraint BBSC_BC_TITLE_nn not null;
 alter table BBSC modify BC_CONTENT constraint BBSC_BC_CONTENT_nn not null;
@@ -479,8 +491,8 @@ alter table BBSC modify USER_NICK constraint BBSC_USER_NICK_nn not null;
 create sequence BBSC_BBSC_ID_seq;
 
 --샘플데이터 of BBSC
-insert into BBSC (BBSC_ID , BC_TITLE, BC_CONTENT, PET_TYPE, BC_PUBLIC, USER_NICK)
-    values(BBSC_BBSC_ID_seq.nextval, '커뮤니티제목1', '커뮤니티본문1', '고양이', 'N', '별칭1');
+insert into BBSC (BBSC_ID , BC_TITLE, BC_CONTENT, PET_TYPE, BC_PUBLIC, BC_GUBUN, USER_NICK)
+    values(BBSC_BBSC_ID_seq.nextval, '커뮤니티제목1', '커뮤니티본문1', '고양이', 'N', 'B0102', '별칭1');
 
 COMMIT;
 
