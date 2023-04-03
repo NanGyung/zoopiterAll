@@ -120,8 +120,13 @@ alter table hmember modify h_pw constraint hmember_h_pw_nn not null;
 alter table hmember modify h_email constraint hmember_h_email_nn not null;
 alter table hmember modify h_name constraint hmember_h_name_nn not null;
 
+<<<<<<< HEAD
 --샘플 데이터 OF HMEMBER
 insert into HMEMBER (H_ID , H_PW, H_NAME, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PLIST, GUBUN)
+=======
+--샘플 데이터
+insert into member (H_ID , H_PW, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PLIST, GUBUN)
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
     values(
     'htest1', 
     'htest1234', 
@@ -141,7 +146,11 @@ insert into HMEMBER (H_ID , H_PW, H_NAME, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDI
     '주차, 무선 인터넷, 반려동물 동반', 
     '강아지, 고양이 전문 병원입니다!', 
     '강아지, 고양이', 
+<<<<<<< HEAD
     'H0101');
+=======
+    'M0101');
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 
 --테이블 구조 확인
 desc hmember;
@@ -183,6 +192,7 @@ alter table hospital_data modify hd_detailname constraint hospital_data_hd_detai
 alter table hospital_data modify hd_name constraint hospital_data_hd_name_nn not null;
 alter table hospital_data modify hd_adit_date constraint hospital_data_hd_adit_date_nn not null;
 alter table hospital_data modify hd_adit_gubun constraint hospital_data_hd_adit_gubun_nn not null;
+<<<<<<< HEAD
 alter table hospital_data modify hd_adit_resdate constraint hospital_data_hd_adit_resdate_nn not null;
 alter table hospital_data modify hd_lng constraint hospital_data_hd_lng_nn not null;
 alter table hospital_data modify hd_lat constraint hospital_data_hd_lat_nn not null;
@@ -195,13 +205,27 @@ commit;
 desc HOSPITAL_DATA;
 
 --샘플데이터 of HOSPITAL_DATA : CSV 파일 데이터 임포트(pethospital.CSV)
+=======
+--alter table hospital_data modify hd_adit_resdate constraint hospital_data_hd_adit_resdate_nn not null;
+--alter table hospital_data modify hd_adit_date constraint hospital_data_hd_adit_date_nn not null;
+
+commit;
+--테이블 구조 확인
+desc HOSPITAL_DATA;
+
+--select * from hospital_data;
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 
 ------------
 --병원정보
 ------------
 CREATE TABLE hospital_info(
+<<<<<<< HEAD
   H_NUM              NUMBER,         --순번
   HD_ID              NUMBER(4),      --동물병원 데이터번호
+=======
+  H_NUM              NUMBER,      --순번
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
   H_ID               varchar2(20),   --병원회원 아이디
   H_NAME             varchar2(52),   --병원 상호명
   H_TEL              VARCHAR2(30),   --병원 연락처
@@ -209,7 +233,10 @@ CREATE TABLE hospital_info(
   H_TIME             varchar2(5000), --진료시간
   H_INFO             varchar2(60),   --편의시설정보
   H_ADDINFO          varchar2(60),   --병원기타정보
+<<<<<<< HEAD
   H_IMG              BLOB,           --병원이미지
+=======
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
   H_CREATE_DATE       timestamp default systimestamp,         --생성일시
   H_UPDATE            timestamp default systimestamp          --수정일시
 );
@@ -228,6 +255,7 @@ alter table HOSPITAL_INFO modify H_CREATE_DATE constraint HOSPITAL_INFO_H_CREATE
 --시퀀스 생성
 create sequence HOSPITAL_INFO_H_NUM_seq;
 
+<<<<<<< HEAD
 --테이블 구조 확인
 DESC HOSPITAL_INFO;
 
@@ -256,11 +284,18 @@ insert into hospital_info (H_NUM , HD_ID, H_ID, H_NAME, H_TEL, H_PLIST, H_TIME, 
 
 COMMIT;
 
+=======
+COMMIT;
+--테이블 구조 확인
+DESC HOSPITAL_INFO;
+
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 ------------
 --반려동물 정보
 ------------
 CREATE TABLE PET_INFO(
   PET_NUM            NUMBER,         --순번
+<<<<<<< HEAD
   USER_ID            varchar2(20),   --일반회원 아이디
   PET_IMG            BLOB,           --반려동물 사진
   PET_NAME           varchar2(40),   --반려동물 이름
@@ -520,5 +555,37 @@ COMMIT;
 
 --테이블 구조 확인
 DESC C_BBSC;
+=======
+  USER_ID            varchar2(20),   --병원회원 아이디
+  PET_IMG            BLOB,           --반려동물 사진
+  PET_TYPE           VARCHAR2(20),   --반려동물 품종
+  PET_BIRTH          DATE,           --반려동물 생일
+  PET_NAME           varchar2(40),   --반려동물 이름
+  PET_YN             CHAR(10),       --중성화 여부(y|n)
+  PET_DATE           DATE,           --입양일
+  PET_VAC            CHAR(10),       --기초접종 여부(y|n)
+  PET_INFO           VARCHAR2(60)    --기타사항
+);
+--기본키생성
+alter table HOSPITAL_INFO add Constraint HOSPITAL_INFO_H_NUM_pk primary key (H_NUM);
+--외래키
+alter table HOSPITAL_INFO add constraint  HOSPITAL_INFO_H_ID_fk
+    foreign key(H_ID) references hmember(H_ID);
+
+--제약조건
+alter table HOSPITAL_INFO modify H_ID constraint HOSPITAL_INFO_H_ID_nn not null;
+alter table HOSPITAL_INFO modify H_NAME constraint HOSPITAL_INFO_H_NAME_nn not null;
+alter table HOSPITAL_INFO modify H_CREATE_DATE constraint HOSPITAL_INFO_H_CREATE_DATE_nn not null;
+-- not null 제약조건은 add 대신 modify 명령문 사용
+
+--시퀀스 생성
+create sequence HOSPITAL_INFO_H_NUM_seq;
+
+COMMIT;
+--테이블 구조 확인
+DESC HOSPITAL_INFO;
+
+
+>>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 
 
