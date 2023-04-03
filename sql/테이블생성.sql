@@ -187,7 +187,7 @@ alter table hospital_data modify hd_lat constraint hospital_data_hd_lat_nn not n
 
 alter table hospital_data add constraint hospital_data_hd_adit_gubun_ck check(hd_adit_gubun in ('U','I'));
 
---샘플데이터 of HOSPITAL_DATA : CSV 파일 데이터 임포트(pethospital.CSV)
+--샘플데이터 of HOSPITAL_DATA : 동물병원데이터(울산, 부산).sql 파일을 열어서 insert 해야함
 
 --테이블 구조 확인
 desc HOSPITAL_DATA;
@@ -215,6 +215,8 @@ alter table HOSPITAL_INFO add Constraint HOSPITAL_INFO_H_NUM_pk primary key (H_N
 --외래키
 alter table HOSPITAL_INFO add constraint  HOSPITAL_INFO_H_ID_fk
     foreign key(H_ID) references hmember(H_ID);
+alter table HOSPITAL_INFO add constraint  HOSPITAL_INFO_HD_ID_fk
+    foreign key(HD_ID) references hospital_data(HD_ID);
 
 --제약조건
 alter table HOSPITAL_INFO modify H_ID constraint HOSPITAL_INFO_H_ID_nn not null;
