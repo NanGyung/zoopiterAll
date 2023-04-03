@@ -98,7 +98,7 @@ create table hmember (
     H_NAME                 varchar2(52),   --병원 상호명
     H_EMAIL                varchar2(40),   --이메일
     H_TEL                  varchar2(30),   --병원 연락처
-    H_TIME                 varchar2(5000), --진료시간
+    H_TIME                 clob,           --진료시간
     H_INFO                 varchar2(60),   --편의시설정보
     H_ADDINFO              varchar2(60),   --병원기타정보
     H_PLIST                varchar2(40),   --진료동물
@@ -203,7 +203,7 @@ CREATE TABLE hospital_info(
   H_NAME             varchar2(52),   --병원 상호명
   H_TEL              VARCHAR2(30),   --병원 연락처
   H_PLIST            varchar2(40),   --진료동물
-  H_TIME             varchar2(5000), --진료시간
+  H_TIME             clob,           --진료시간
   H_INFO             varchar2(60),   --편의시설정보
   H_ADDINFO          varchar2(60),   --병원기타정보
   H_IMG              BLOB,           --병원이미지
@@ -380,7 +380,7 @@ DESC PET_NOTE;
 CREATE TABLE BBSH(
   BBSH_ID            NUMBER,          --게시글 번호(순번)
   BH_TITLE           varchar2(150),   --글 제목
-  BH_CONTENT         VARCHAR2(4000),  --글 내용
+  BH_CONTENT         clob,            --글 내용
   PET_TYPE           varchar2(20),    --반려동물 품종
   BH_ATTACH          BLOB,            --첨부파일
   BH_HNAME           VARCHAR2(52),    --병원이름
@@ -417,7 +417,7 @@ DESC BBSH;
 CREATE TABLE C_BBSH(
   HC_ID              NUMBER,          --댓글 번호(순번)
   BBSH_ID            NUMBER,          --게시글 번호
-  HC_CONTENT         VARCHAR2(300),   --글 내용
+  HC_CONTENT         varchar2(1500),  --댓글 내용
   USER_NICK          varchar2(30),    --일반회원 닉네임
   BH_CDATE           timestamp default systimestamp,   --작성일
   BH_UDATE           timestamp default systimestamp    --수정일 
@@ -451,7 +451,7 @@ DESC C_BBSH;
 CREATE TABLE BBSC(
   BBSC_ID            NUMBER,              --게시글 번호(순번)
   BC_TITLE           varchar2(150),       --글 제목
-  BC_CONTENT         VARCHAR2(4000),      --글 내용
+  BC_CONTENT         clob,                --글 내용
   PET_TYPE           varchar2(20),        --반려동물 품종
   BC_ATTACH          BLOB,                --첨부파일
   BC_HIT             NUMBER  default 0,   --조회수
@@ -491,7 +491,7 @@ DESC BBSC;
 CREATE TABLE C_BBSC(
   CC_ID              NUMBER,          --댓글 번호(순번)
   BBSC_ID            NUMBER,          --게시글 번호
-  CC_CONTENT         VARCHAR2(300),   --글 내용
+  CC_CONTENT         varchar2(1500),  --댓글 내용
   USER_NICK          varchar2(30),    --일반회원 닉네임
   CC_CDATE           timestamp default systimestamp,   --작성일
   CC_UDATE           timestamp default systimestamp    --수정일 
@@ -503,9 +503,9 @@ alter table C_BBSC add constraint  C_BBSC_BBSC_ID_fk
     foreign key(BBSC_ID) references BBSC(BBSC_ID);
 
 --제약조건
-alter table C_BBSC modify BBSC_ID constraint C_BBSH_BBSC_ID_nn not null;
-alter table C_BBSC modify CC_CONTENT constraint C_BBSH_CC_CONTENT_nn not null;
-alter table C_BBSC modify USER_NICK constraint C_BBSH_USER_NICK_nn not null;
+alter table C_BBSC modify BBSC_ID constraint C_BBSC_BBSC_ID_nn not null;
+alter table C_BBSC modify CC_CONTENT constraint C_BBSC_CC_CONTENT_nn not null;
+alter table C_BBSC modify USER_NICK constraint C_BBSC_USER_NICK_nn not null;
 -- not null 제약조건은 add 대신 modify 명령문 사용
 
 --시퀀스 생성
