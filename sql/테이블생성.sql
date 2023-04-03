@@ -83,12 +83,10 @@ alter table member modify user_email constraint member_user_email_nn not null;
 
 desc member;
 
-
 --샘플데이터 of MEMBER
 insert into member (USER_ID , USER_PW, USER_NICK, USER_EMAIL, GUBUN)
     values('test1', 'test1234', '별칭1', 'test1@gamil.com', 'M0101');
 
---select * from member;
 commit;
 
 -------
@@ -120,13 +118,8 @@ alter table hmember modify h_pw constraint hmember_h_pw_nn not null;
 alter table hmember modify h_email constraint hmember_h_email_nn not null;
 alter table hmember modify h_name constraint hmember_h_name_nn not null;
 
-<<<<<<< HEAD
 --샘플 데이터 OF HMEMBER
 insert into HMEMBER (H_ID , H_PW, H_NAME, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PLIST, GUBUN)
-=======
---샘플 데이터
-insert into member (H_ID , H_PW, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PLIST, GUBUN)
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
     values(
     'htest1', 
     'htest1234', 
@@ -146,11 +139,7 @@ insert into member (H_ID , H_PW, H_EMAIL, H_TEL, H_TIME, H_INFO, H_ADDINFO, H_PL
     '주차, 무선 인터넷, 반려동물 동반', 
     '강아지, 고양이 전문 병원입니다!', 
     '강아지, 고양이', 
-<<<<<<< HEAD
     'H0101');
-=======
-    'M0101');
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 
 --테이블 구조 확인
 desc hmember;
@@ -192,40 +181,24 @@ alter table hospital_data modify hd_detailname constraint hospital_data_hd_detai
 alter table hospital_data modify hd_name constraint hospital_data_hd_name_nn not null;
 alter table hospital_data modify hd_adit_date constraint hospital_data_hd_adit_date_nn not null;
 alter table hospital_data modify hd_adit_gubun constraint hospital_data_hd_adit_gubun_nn not null;
-<<<<<<< HEAD
 alter table hospital_data modify hd_adit_resdate constraint hospital_data_hd_adit_resdate_nn not null;
 alter table hospital_data modify hd_lng constraint hospital_data_hd_lng_nn not null;
 alter table hospital_data modify hd_lat constraint hospital_data_hd_lat_nn not null;
 
 alter table hospital_data add constraint hospital_data_hd_adit_gubun_ck check(hd_adit_gubun in ('U','I'));
 
-commit;
-
---테이블 구조 확인
-desc HOSPITAL_DATA;
-
 --샘플데이터 of HOSPITAL_DATA : CSV 파일 데이터 임포트(pethospital.CSV)
-=======
---alter table hospital_data modify hd_adit_resdate constraint hospital_data_hd_adit_resdate_nn not null;
---alter table hospital_data modify hd_adit_date constraint hospital_data_hd_adit_date_nn not null;
 
-commit;
 --테이블 구조 확인
 desc HOSPITAL_DATA;
-
---select * from hospital_data;
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
+commit;
 
 ------------
 --병원정보
 ------------
 CREATE TABLE hospital_info(
-<<<<<<< HEAD
   H_NUM              NUMBER,         --순번
   HD_ID              NUMBER(4),      --동물병원 데이터번호
-=======
-  H_NUM              NUMBER,      --순번
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
   H_ID               varchar2(20),   --병원회원 아이디
   H_NAME             varchar2(52),   --병원 상호명
   H_TEL              VARCHAR2(30),   --병원 연락처
@@ -233,10 +206,7 @@ CREATE TABLE hospital_info(
   H_TIME             varchar2(5000), --진료시간
   H_INFO             varchar2(60),   --편의시설정보
   H_ADDINFO          varchar2(60),   --병원기타정보
-<<<<<<< HEAD
   H_IMG              BLOB,           --병원이미지
-=======
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
   H_CREATE_DATE       timestamp default systimestamp,         --생성일시
   H_UPDATE            timestamp default systimestamp          --수정일시
 );
@@ -255,9 +225,6 @@ alter table HOSPITAL_INFO modify H_CREATE_DATE constraint HOSPITAL_INFO_H_CREATE
 --시퀀스 생성
 create sequence HOSPITAL_INFO_H_NUM_seq;
 
-<<<<<<< HEAD
---테이블 구조 확인
-DESC HOSPITAL_INFO;
 
 --샘플데이터 of hospital_info
 insert into hospital_info (H_NUM , HD_ID, H_ID, H_NAME, H_TEL, H_PLIST, H_TIME, H_INFO, H_ADDINFO)
@@ -282,20 +249,16 @@ insert into hospital_info (H_NUM , HD_ID, H_ID, H_NAME, H_TEL, H_PLIST, H_TIME, 
     '강아지, 고양이 전문 병원입니다!'
     );
 
-COMMIT;
 
-=======
 COMMIT;
 --테이블 구조 확인
 DESC HOSPITAL_INFO;
 
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 ------------
 --반려동물 정보
 ------------
 CREATE TABLE PET_INFO(
   PET_NUM            NUMBER,         --순번
-<<<<<<< HEAD
   USER_ID            varchar2(20),   --일반회원 아이디
   PET_IMG            BLOB,           --반려동물 사진
   PET_NAME           varchar2(40),   --반려동물 이름
