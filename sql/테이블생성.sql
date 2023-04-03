@@ -268,6 +268,7 @@ CREATE TABLE PET_INFO(
   PET_IMG            BLOB,           --반려동물 사진
   PET_NAME           varchar2(40),   --반려동물 이름
   PET_TYPE           VARCHAR2(20),   --반려동물 품종
+  PET_GENDER         CHAR(1) default 'M',   --반려동물 성별(남: M, 여: F)
   PET_BIRTH          DATE,           --반려동물 생일
   PET_YN             CHAR(1) default 'N',       --중성화 여부(완료: Y, 미완료: N)
   PET_DATE           DATE,           --입양일
@@ -287,7 +288,10 @@ alter table PET_INFO add constraint  PET_INFO_PET_VAC_fk
 alter table PET_INFO modify USER_ID constraint PET_INFO_USER_ID_nn not null;
 alter table PET_INFO modify PET_NAME constraint PET_INFO_PET_NAME_nn not null;
 alter table PET_INFO modify PET_VAC constraint PET_INFO_PET_VAC_nn not null;
+alter table PET_INFO modify PET_GENDER constraint PET_INFO_PET_GENDER_nn not null;
+
 alter table PET_INFO add constraint PET_INFO_PET_YN_ck check(PET_YN in ('Y','N'));
+alter table PET_INFO add constraint PET_INFO_PET_GENDER_ck check(PET_GENDER in ('M','F'));
 -- not null 제약조건은 add 대신 modify 명령문 사용
 
 --시퀀스 생성
@@ -297,12 +301,13 @@ create sequence PET_INFO_PET_NUM_seq;
 DESC PET_INFO;
 
 --샘플데이터 of PET_INFO
-insert into PET_INFO (PET_NUM , USER_ID, PET_NAME, PET_TYPE, PET_BIRTH, PET_YN, PET_DATE, PET_VAC)
+insert into PET_INFO (PET_NUM , USER_ID, PET_NAME, PET_TYPE, PET_GENDER, PET_BIRTH, PET_YN, PET_DATE, PET_VAC)
     values(
     PET_INFO_PET_NUM_seq.nextval, 
     'test1', 
     '반려동물1', 
     '강아지', 
+    'F', 
     '2022-01-01', 
     'Y', 
     '2022-03-01', 
@@ -321,6 +326,7 @@ CREATE TABLE PET_NOTE(
   PET_NAME           varchar2(40),   --반려동물 이름
   PET_IMG            BLOB,           --반려동물 사진
   PET_TYPE           VARCHAR2(20),   --반려동물 품종
+  PET_GENDER         CHAR(1) default 'M',   --반려동물 성별(남: M, 여: F)
   PET_BIRTH          DATE,           --반려동물 생일
   PET_YN             CHAR(1),        --중성화 여부(완료: Y, 미완료: N)
   PET_INFO           varchar2(60),   --기타사항
@@ -348,6 +354,8 @@ alter table PET_NOTE modify USER_ID constraint PET_NOTE_USER_ID_nn not null;
 alter table PET_NOTE modify PET_H_CHECK constraint PET_NOTE_PET_H_CHECK_nn not null;
 alter table PET_NOTE modify PET_NAME constraint PET_NOTE_PET_NAME_nn not null;
 alter table PET_NOTE add constraint PET_NOTE_PET_YN_ck check(PET_YN in ('Y','N'));
+
+alter table PET_NOTE add constraint PET_NOTE_PET_GENDER_ck check(PET_GENDER in ('M','F'));
 -- not null 제약조건은 add 대신 modify 명령문 사용
 
 --시퀀스 생성
@@ -362,6 +370,7 @@ insert into PET_NOTE (
     'test1', 
     '반려동물1', 
     '강아지', 
+    'F', 
     '2022-01-01', 
     'Y', 
     4,
