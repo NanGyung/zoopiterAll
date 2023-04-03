@@ -555,37 +555,5 @@ COMMIT;
 
 --테이블 구조 확인
 DESC C_BBSC;
-=======
-  USER_ID            varchar2(20),   --병원회원 아이디
-  PET_IMG            BLOB,           --반려동물 사진
-  PET_TYPE           VARCHAR2(20),   --반려동물 품종
-  PET_BIRTH          DATE,           --반려동물 생일
-  PET_NAME           varchar2(40),   --반려동물 이름
-  PET_YN             CHAR(10),       --중성화 여부(y|n)
-  PET_DATE           DATE,           --입양일
-  PET_VAC            CHAR(10),       --기초접종 여부(y|n)
-  PET_INFO           VARCHAR2(60)    --기타사항
-);
---기본키생성
-alter table HOSPITAL_INFO add Constraint HOSPITAL_INFO_H_NUM_pk primary key (H_NUM);
---외래키
-alter table HOSPITAL_INFO add constraint  HOSPITAL_INFO_H_ID_fk
-    foreign key(H_ID) references hmember(H_ID);
-
---제약조건
-alter table HOSPITAL_INFO modify H_ID constraint HOSPITAL_INFO_H_ID_nn not null;
-alter table HOSPITAL_INFO modify H_NAME constraint HOSPITAL_INFO_H_NAME_nn not null;
-alter table HOSPITAL_INFO modify H_CREATE_DATE constraint HOSPITAL_INFO_H_CREATE_DATE_nn not null;
--- not null 제약조건은 add 대신 modify 명령문 사용
-
---시퀀스 생성
-create sequence HOSPITAL_INFO_H_NUM_seq;
-
-COMMIT;
---테이블 구조 확인
-DESC HOSPITAL_INFO;
-
-
->>>>>>> 14d67d3eac50d82d28b87cbda9210cec5a287f54
 
 
