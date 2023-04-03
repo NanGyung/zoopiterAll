@@ -354,16 +354,15 @@ alter table PET_NOTE modify USER_ID constraint PET_NOTE_USER_ID_nn not null;
 alter table PET_NOTE modify PET_H_CHECK constraint PET_NOTE_PET_H_CHECK_nn not null;
 alter table PET_NOTE modify PET_NAME constraint PET_NOTE_PET_NAME_nn not null;
 alter table PET_NOTE add constraint PET_NOTE_PET_YN_ck check(PET_YN in ('Y','N'));
-
 alter table PET_NOTE add constraint PET_NOTE_PET_GENDER_ck check(PET_GENDER in ('M','F'));
 -- not null 제약조건은 add 대신 modify 명령문 사용
 
 --시퀀스 생성
 create sequence PET_NOTE_NOTE_NUM_seq;
 
---샘플데이터 of PET_NOTE
+--샘플데이터 of PET_NOTE -- 반려동물 성별 추가하니 
 insert into PET_NOTE (
-    NOTE_NUM , USER_ID, PET_NAME, PET_TYPE, PET_BIRTH, PET_YN, PET_WEIG, PET_H_CHECK, 
+    NOTE_NUM , USER_ID, PET_NAME, PET_TYPE, PET_GENDER, PET_BIRTH, PET_YN, PET_WEIG, PET_H_CHECK, 
     PET_H_NAME, PET_H_TEACHER, PET_REASON, PET_STMP, PET_SIGNICE, PET_NEXTDATE, PET_VAC)
     values(
     PET_NOTE_NOTE_NUM_seq.nextval, 
