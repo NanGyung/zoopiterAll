@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8" />
@@ -29,7 +29,7 @@
     <main class="container">
       <div id="mainTitle">
         <i class="fa-solid fa-dog fa-2x"></i>
-        <h2 style="font-weight: bold"><a href="index.html">슬기로운 반려생활</a></h2>
+        <h2 style="font-weight: bold"><a href="index.html" th:href="@{/}">슬기로운 반려생활</a></h2>
       </div>
 
       <div class="scroll-boxs box1">
@@ -126,14 +126,14 @@
             <p>펫오너</p>
             <p style="font-size: 1em; font-weight: 300; text-align: left;">슬기로운 반려생활을 위해 지금 바로 가입하세요!</p>
             <button class="signBtn signUp" disabled="true">
-              <a href="./member_signup.html" onclick="location">펫오너로 가입</a>
+              <a href="./member_signup.html" onclick="location" th:href="@{/members/add}">펫오너로 가입</a>
             </button>
           </div>
           <div class="joinbox__title__hospital">
             <p>펫병원</p>
             <p style="font-size: 1em; font-weight: 300; text-align: left;"> 병원을 무료로 홍보할 수 있는 서비스를 이용할 수 있습니다. :)</p>
             <div class="joinbox__btns__choice1">
-              <button class="signBtn signUpH" disabled="true">펫병원으로 가입</button>
+              <button class="signBtn signUpH" disabled="true" th:href="@{/members/add}">펫병원으로 가입</button>
             </div>
           </div>
         </aside>

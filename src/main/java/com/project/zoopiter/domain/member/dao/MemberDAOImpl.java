@@ -3,6 +3,8 @@ package com.project.zoopiter.domain.member.dao;
 import com.project.zoopiter.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -10,6 +12,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Slf4j
@@ -55,10 +58,12 @@ public class MemberDAOImpl implements MemberDAO {
   @Override
   public void update(String userId, Member member) {
     StringBuffer sql = new StringBuffer();
-    sql.append("update member set user_nick = ? where user_id = ? ");
+    sql.append("update member set user_email = :userEmail, user_pw = :userPw, user_nick = :userNick where user_id = :userId ");
 
     SqlParameterSource param = new MapSqlParameterSource()
-        .addValue("nickname",member.getUserNick())
+        .addValue("userEmail",member.getUserEmail())
+        .addValue("userPw",member.getUserPw())
+        .addValue("userNick",member.getUserNick())
         .addValue("userId",userId);
 
     template.update(sql.toString(),param);
@@ -74,8 +79,19 @@ public class MemberDAOImpl implements MemberDAO {
   @Override
   public Optional<Member> findbyEmail(String userEmail) {
     StringBuffer sql = new StringBuffer();
-    sql.append("select user_id, user_pw, user_email, user_nick from member where user_email = :email ");
-    return Optional.empty();
+    sql.append("select user_id, user_pw, user_email, user_nick from member where user_email = :userEmail ");
+
+    try{
+      Map<String, String> param = Map.of("user_email", userEmail);
+      Member member = template.queryForObject(
+        sql.toString(),
+        param,
+        BeanPropertyRowMapper.newInstance(Member.class)
+      );
+      return Optional.of(member);
+    }catch (EmptyResultDataAccessException e){
+      return Optional.empty();
+    }
   }
 
   /**
@@ -86,7 +102,20 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public Optional<Member> findById(String userId) {
-    return Optional.empty();
+    StringBuffer sql = new StringBuffer();
+    sql.append("select user_id, user_pw, user_email, user_nick from member where user_email = :userId ");
+
+    try{
+      Map<String, String> param = Map.of("user_Id", userId);
+      Member member = template.queryForObject(
+          sql.toString(),
+          param,
+          BeanPropertyRowMapper.newInstance(Member.class)
+      );
+      return Optional.of(member);
+    }catch (EmptyResultDataAccessException e){
+      return Optional.empty();
+    }
   }
 
   /**
@@ -96,17 +125,30 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public List<Member> findAll() {
-    return null;
+    StringBuffer sql = new StringBuffer();
+    sql.append("select user_id as userId, user_email, user_pw, user_nick from member order by user_id desc ");
+
+    List<Member> list = template.query(
+      sql.toString(),
+      BeanPropertyRowMapper.newInstance(Member.class)
+    );
+
+    return list;
   }
 
   /**
    * 탈퇴
    *
-   * @param userId 아이디
+   * @param userEmail 이메일
    */
   @Override
-  public void delete(String userId) {
+  public void delete(String userEmail) {
+    StringBuffer sql = new StringBuffer();
+    sql.append("delete from member ");
+    sql.append(" where user_email = :userEmail ");
 
+    Map<String, String> param = Map.of("user_email", userEmail);
+    template.update(sql.toString(), param);
   }
 
   /**
@@ -117,7 +159,14 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public boolean isExist(String userEmail) {
-    return false;
+    boolean flag = false;
+    String sql = "select count(user_email) from member where user_email = :userEmail ";
+
+    Map<String, String> param = Map.of("user_email", userEmail);
+
+    Integer cnt = template.queryForObject(sql, param, Integer.class);
+
+    return cnt == 1 ? true : false;
   }
 
   /**
@@ -129,7 +178,17 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public Optional<Member> login(String userId, String userPw) {
-    return Optional.empty();
+    StringBuffer sql = new StringBuffer();
+    sql.append("select user_id, user_email, user_nick, user_gubun from member where user_id = :userId and user_pw = :userPw");
+
+    Map<String, String> param = Map.of("user_id", userId, "user_pw", userPw);
+    List<Member> list = template.query(
+        sql.toString(),
+        param,
+        BeanPropertyRowMapper.newInstance(Member.class)
+    );
+
+    return list.size() == 1 ? Optional.of(list.get(0)) : Optional.empty();
   }
 
   /**
@@ -140,6 +199,16 @@ public class MemberDAOImpl implements MemberDAO {
    */
   @Override
   public Optional<String> findIdByEmail(String userEmail) {
-    return Optional.empty();
+    StringBuffer sql = new StringBuffer();
+    sql.append("select user_id from member where user_email = :userEmail ");
+
+    Map<String, String> param = Map.of("user_email", userEmail);
+    List<String> result = template.query(
+      sql.toString(),
+      param,
+        (rs, rowNum)->rs.getNString("user_Id")
+    );
+
+    return (result.size() == 1) ? Optional.of(result.get(0)) : Optional.empty();
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,7 +32,7 @@
         <div id="mainTitle">
           <i class="fa-solid fa-dog fa-2x"></i>
           <h2 style="font-weight: bold">
-            <a href="index.html">슬기로운 반려생활</a>
+            <a href="index.html" th:href="@{/}">슬기로운 반려생활</a>
           </h2>
         </div>
         <section class="joinForm">

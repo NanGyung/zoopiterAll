@@ -18,19 +18,33 @@ public class MemberDAOImplTest {
   void save(){
     Member member = new Member();
 
-    member.setUserId("member2");
-    member.setUserPw("member1234");
-    member.setUserEmail("member2@gmail.com");
+    member.setUserId("test2");
+    member.setUserPw("test1234");
+    member.setUserEmail("test2@gmail.com");
     member.setUserNick("별칭2");
     member.setGubun("M0101");
 
     Member savedMember = memberDAO.save(member);
 
-    Assertions.assertThat(savedMember.getUserId()).isEqualTo("member2");
-    Assertions.assertThat(savedMember.getUserPw()).isEqualTo("member1234");
-    Assertions.assertThat(savedMember.getUserEmail()).isEqualTo("member2@gmail.com");
+    Assertions.assertThat(savedMember.getUserId()).isEqualTo("test2");
+    Assertions.assertThat(savedMember.getUserPw()).isEqualTo("test1234");
+    Assertions.assertThat(savedMember.getUserEmail()).isEqualTo("test2@gmail.com");
     Assertions.assertThat(savedMember.getUserNick()).isEqualTo("별칭2");
     Assertions.assertThat(savedMember.getGubun()).isEqualTo("M0101");
+
+  }
+
+  @Test
+  @DisplayName("수정")
+  void update(){
+    String userId = "test1";
+    Member member = new Member();
+
+    member.setUserEmail("u_test1@gmail.com");
+    member.setUserPw("utest1234");
+    member.setUserNick("별칭1_수정");
+
+    memberDAO.update(userId, member);
 
 
   }

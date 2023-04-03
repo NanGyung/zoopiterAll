@@ -22,7 +22,14 @@ public class MemberController {
 
   private final MemberSVC memberSVC;
 
-  //회원가입양식
+  //회원가입약관동의
+  @GetMapping("/join")
+  public String clauseForm(Model model){
+    model.addAttribute("joinForm",new JoinForm());
+    return "member/member_join";
+  }
+
+  //회원가입 양식
   @GetMapping("/add")
   public String joinForm(Model model){
     model.addAttribute("joinForm",new JoinForm());
@@ -42,4 +49,6 @@ public class MemberController {
     memberSVC.save(member);
     return "member/member_joinSuccess";
   }
+
+
 }
