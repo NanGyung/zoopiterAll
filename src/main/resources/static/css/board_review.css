@@ -96,6 +96,9 @@ p {
   margin-right: 1.2rem;
 }
 
+.sort .left .tag input[type="checkbox"]{
+  font-size: 0.8rem;
+}
 @media screen and (width <=800px) {
   .sort .left .tag {
     margin-right: 0.5rem;
@@ -123,7 +126,7 @@ p {
   /* display: flex; */
   align-items: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1rem;
   /* margin-left: 10px; */
 }
 .sort .search {
@@ -159,10 +162,6 @@ p {
 
 .sort .search .left .selectBox {
   position: relative;
-  /* width: 130px; */
-  height: 25px;
-  /* border-radius: 4px; */
-  /* border: 2px solid #f29a2e; */
   font-size: 0.9rem;
 }
 .sort .search .left .selectBox .select {
@@ -203,7 +202,7 @@ p {
   border: 1px solid #ffd65f;
   border-radius: 2rem;
   background-color: #ffd65f;
-  margin-left: 1.2rem;
+  margin: 1.2rem;
 }
 
 .sort .search .left .selectBox .icoArrow i {

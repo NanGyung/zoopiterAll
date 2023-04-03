@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="메인화면" />
+    <meta name="keywords" content="pet hospital search" />
+    <meta name="author" content="2팀" />
+    <title>my page</title>
+    <!--  마이페이지 css -->
+    <link rel="stylesheet" href="../css/mypage/mypage_pet_reg.css" />
+    <!--  폰트 어썸 : 로고 -->
+    <script
+      src="https://kit.fontawesome.com/6631aa96e6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <!-- 이미지 파일 img 폴더에 넣었습니다. -->
+  <!-- mypage_pet_reg.css 안에 @import '/theme/layout.css'; 추가해주시면 헤더, 푸터 css 적용 됩니다. -->
+
+  <body>
+    <div class="wrap">
+      <div class="hd-l"></div>
+      <header class="hd">
+        <nav class="hd__menu">
+          <ul class="hd__menu__list1">
+            <li id="logo">
+              <a href="index.html">
+                <i class="fa-solid fa-dog fa-2x"></i>
+                <h3>슬기로운 반려생활</h3>
+              </a>
+            </li>
+            <li class="hd__menu__list1__item list1-item1">
+              <a href="#">펫병원</a>
+              <ul class="hd__menu__list1__item__submenu">
+                <li><a href="#">병원찾기</a></li>
+              </ul>
+            </li>
+            <li class="hd__menu__list1__item list1-item2">
+              <a href="#">게시판</a>
+              <ul class="hd__menu__list1__item__submenu">
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">병원후기</a></li>
+                <li><a href="#">펫가이드</a></li>
+              </ul>
+            </li>
+            <li class="hd__menu__list1__item list1-item3" id="myPage">
+              <a href="#">마이페이지</a>
+            </li>
+            <div class="hd__menu__list1__item list1-item4" id="join">
+              <li><a href="#">로그인</a></li>
+              |
+              <li><a href="#">회원가입</a></li>
+            </div>
+          </ul>
+          <a href="#" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+        </nav>
+      </header>
+      <div class="hd-r"></div>
+
+      <div class="fg-l"></div>
+      <figure class="fg-banner">
+        <div class="user-profile">
+          <p>마이페이지</p>
+          <h2>반가워요</h2>
+          <div class="profile-list">
+            <div class="profile-area">
+              <div class="upload-area">
+                <img src="../img/img_profile1.png" alt="" />
+              </div>
+              <div class="upload-area2" id="">
+                <div class="pet-name">반려동물이름</div>
+                <div class="pet-info">정보</div>
+              </div>
+            </div>
+            <div class="profile-make">
+              <a href="#">
+                <img src="../img/add_circle.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </figure>
+      <div class="fg-r"></div>
+
+      <div class="mn-l"></div>
+      <main class="container">
+        <!-- 사이드메뉴 -->
+        <div class="main-gnb">
+          <div class="pc">
+            <ul>
+              <li><a href="">보호자 정보관리</a></li>
+            </ul>
+            <!-- <hr width="100" color="#000" noshade /> -->
+            <ul>
+              <li><a href="">반려동물 정보관리</a></li>
+            </ul>
+            <ul>
+              <li>
+                <a href="">병원후기</a>
+              </li>
+              <li>
+                <a href="">게시글</a>
+              </li>
+            </ul>
+            <ul>
+              <li><a href="">병원후기</a></li>
+              <li><a href="">게시글/댓글</a></li>
+            </ul>
+            <ul>
+              <li><a href="">동물병원</a></li>
+              <li><a href="">스크랩 목록</a></li>
+            </ul>
+            <ul>
+              <li><a href="">의료수첩 관리</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 메인컨텐츠 -->
+        <div class="mypage_content">
+          <div class="myprofile-top">반려동물 등록</div>
+          <div class="myprofile-list">
+            <ul class="list-frm">
+              <div class="list">사진</div>
+              <div class="list-frm">
+                <div class="myprofile-list-image">
+                  <img src="img/img_profile1.png" alt="" />
+                  <li>
+                    <div class="myprofile-list-text">
+                      반려동물을 표현 할 수 있는 사진을 등록해주세요
+                    </div>
+                  </li>
+                </div>
+              </div>
+              <div class="myprofile-button">
+                <button
+                  type="button"
+                  class="btn-frm"
+                  id="btn_modify"
+                  onclick="modify()"
+                  value="confirm"
+                >
+                  완료
+                </button>
+              </div>
+            </ul>
+
+            <div class="list-frm">
+              <div class="list">사진선택</div>
+              <div class="btn-group">
+                <input type="file" id="profile-image" class="n-hidden" />
+                <button
+                  type="button"
+                  class="profile-image-default"
+                  id="profile-image-default"
+                >
+                  기본이미지로 변경
+                </button>
+              </div>
+            </div>
+            <div class="list-frm">
+              <div class="list">이름</div>
+              <input type="text" id="petname-text" maxlength="10" />
+              <ul>
+                <li>최대 10자까지 등록할 수 있어요 :)</li>
+              </ul>
+            </div>
+
+            <div class="list-frm">
+              <div class="list">반려동물 품종</div>
+              <div class="my-info">aaa1234</div>
+            </div>
+            <div class="list-frm">
+              <div class="list">성별</div>
+
+              <input type="radio" name="gender" id="gender_male" value="male" />
+              <label for="gender_male" class="gender_male" data-action="OFF"
+                >남자</label
+              >
+
+              <input
+                type="radio"
+                name="gender"
+                id="gender_female"
+                value="female"
+              />
+              <label for="gender_female" class="gender_female" data-action="ON"
+                >여자</label
+              >
+            </div>
+
+            <div class="list-frm">
+              <div class="list">생일</div>
+              <input type="text" id="pet-birth" maxlength="10" />
+            </div>
+            <div class="list-frm">
+              <div class="list">입양일</div>
+              <input type="text" id="pet-birth" maxlength="10" />
+            </div>
+
+            <div class="list-frm">
+              <div class="list">중성화 여부</div>
+              <!-- 중성화:Neutering -->
+              <input type="radio" name="check0" id="neuYes" value="" />
+              <label for="neuYes" class="check-on" data-action="ON"
+                >중성화 전</label
+              >
+              <input type="radio" name="check0" id="neuNo" value="" />
+              <label for="neuNo" class="check-off" data-action="OFF"
+                >중성화 후</label
+              >
+            </div>
+            <div class="list-frm">
+              <div class="list">기초접종 여부</div>
+              <!-- vaccine -->
+              <input type="radio" name="check1" id="vacNone" value="" />
+              <label for="vacNone" class="check-on" data-action="ON"
+                >모름</label
+              >
+              <input type="radio" name="check1" id="vacBefore" value="" />
+              <label for="vacBefore" class="check-on" data-action="OFF"
+                >접종 전</label
+              >
+              <input type="radio" name="check1" id="vacIng" value="" />
+              <label for="vacIng" class="check-on" data-action="OFF"
+                >접종 중</label
+              >
+
+              <input type="radio" name="check1" id="vacAfter" value="" />
+              <label for="vacAfter" class="check-on" data-action="OFF"
+                >접종 완료</label
+              >
+            </div>
+
+            <div class="list-frm">
+              <div class="list">기타 사항</div>
+              <input
+                type="text"
+                id="act-text"
+                style="height: 50px; width: 300px"
+              />
+            </div>
+          </div>
+          <!-- 등록버튼 -->
+          <div class="list-frm">
+            <div class="my-info">
+              <div class="myprofile-button">
+                <button
+                  type="button"
+                  class="btn-frm"
+                  id="btn_modify"
+                  onclick="modify()"
+                  value="confirm"
+                >
+                  등록완료
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="mn-r"></div>
+
+      <div class="ft-l"></div>
+      <footer class="ft">
+        <div class="ft__buttons f-item1">
+          <a href="index.html">슬기로운 반려생활</a>
+        </div>
+        <div class="ft__mid-area">
+          <div class="ft__buttons f-item2">
+            <a href="#">개인정보처리방침</a>
+          </div>
+          <div class="ft__buttons f-item3">
+            <a href="#">이용약관</a>
+          </div>
+          <div class="ft__buttons f-item4">
+            <a href="#">광고문의</a>
+          </div>
+        </div>
+        <div class="ft__info">
+          <p>슬기로운 반려생활</p>
+          <p>주소 : 울산시 자바 개발구 KH빌딩 5층 502호</p>
+          <p>광고문의 052-123-4567</p>
+        </div>
+        <div class="ft__copy">
+          Copyright© 2023 슬반생.All right reserved. Designed by 슬반생
+        </div>
+      </footer>
+      <div class="ft-r"></div>
+    </div>
+    <!-- 햄버거 메뉴 구현 -->
+    <script src="../js/hambuger.js"></script>
+    <!-- my page -->
+    <script src="../js/mypage_main.js"></script>
+    <!-- 이미지 업로드 -->
+    <script src="../js/mypage_imgUpload.js"></script>
+  </body>
+</html>

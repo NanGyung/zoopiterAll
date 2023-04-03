@@ -1,0 +1,435 @@
+@charset "utf-8";
+@import 'theme/layout.css';
+
+.fg-banner{
+    grid-area: fg;
+}
+
+.container {
+    grid-area: mn;
+}
+
+/* 동물병원 찾기 css */
+.bg_white {
+    background: #fff;
+}
+
+#menu_wrap hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #5f5f5f;
+    margin: 3px 0;
+}
+
+#menu_wrap .option {
+    text-align: center;
+}
+
+#menu_wrap .option p {
+    margin: 10px 0;
+}
+
+#menu_wrap .option button {
+    margin-left: 5px;
+}
+
+#placesList li {
+    list-style: none;
+}
+
+#placesList .item {
+    position: relative;
+    border-bottom: 1px solid #888;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 65px;
+}
+
+#placesList .item span {
+    display: block;
+    margin-top: 4px;
+}
+
+#placesList .item h5,
+#placesList .item .info {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#placesList .item .info {
+    padding: 10px 0 10px 55px;
+}
+
+#placesList .info .gray {
+    color: #8a8a8a;
+}
+
+#placesList .info .jibun {
+    padding-left: 26px;
+    background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+}
+
+#placesList .info .tel {
+    color: #009900;
+}
+
+#placesList .item .markerbg {
+    float: left;
+    position: absolute;
+    width: 36px;
+    height: 37px;
+    margin: 10px 0 0 10px;
+    background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+}
+
+#placesList .item .marker_1 {
+    background-position: 0 -10px;
+}
+
+#placesList .item .marker_2 {
+    background-position: 0 -56px;
+}
+
+#placesList .item .marker_3 {
+    background-position: 0 -102px;
+}
+
+#placesList .item .marker_4 {
+    background-position: 0 -148px;
+}
+
+#placesList .item .marker_5 {
+    background-position: 0 -194px;
+}
+
+#placesList .item .marker_6 {
+    background-position: 0 -240px;
+}
+
+#placesList .item .marker_7 {
+    background-position: 0 -286px;
+}
+
+#placesList .item .marker_8 {
+    background-position: 0 -332px;
+}
+
+#placesList .item .marker_9 {
+    background-position: 0 -378px;
+}
+
+#placesList .item .marker_10 {
+    background-position: 0 -423px;
+}
+
+#placesList .item .marker_11 {
+    background-position: 0 -470px;
+}
+
+#placesList .item .marker_12 {
+    background-position: 0 -516px;
+}
+
+#placesList .item .marker_13 {
+    background-position: 0 -562px;
+}
+
+#placesList .item .marker_14 {
+    background-position: 0 -608px;
+}
+
+#placesList .item .marker_15 {
+    background-position: 0 -654px;
+}
+
+#pagination {
+    margin: 10px auto;
+    text-align: center;
+}
+
+#pagination a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#pagination .on {
+    font-weight: bold;
+    cursor: default;
+    color: #777;
+}
+
+
+.h5 {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.h2 {
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 50px;
+    margin-right: 30px;
+}
+
+.but1 {
+    width: 200px;
+    height: 80px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+#map {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+
+.botmenu {
+    height: 100px;
+    line-height: 100px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.butt {
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.sel {
+    width: 150px;
+    height: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* 검색목록 */
+#placesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* 병원목록 추출 파트 */
+.find1 {
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    background-color: lightgrey;
+    height: 200px;
+    width: 100%;
+}
+
+.find2 {
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    background-color: lightgrey;
+    height: 200px;
+}
+
+.find3 {
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    background-color: lightgrey;
+    height: 200px;
+}
+
+.find4 {
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    background-color: lightgrey;
+    height: 200px;
+}
+
+
+/* 장소검색 */
+#search {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    z-index: 2;
+}
+
+/* 삭제? */
+#keyword {
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#default_position_marker {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 255, 0, 0.2);
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 50%;
+}
+
+/* 내 위치 마커 */
+.whereIam {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 50%;
+    animation: impact 1.5s infinite;
+}
+
+/* 마커 특수효과 */
+@keyframes impact {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    }
+
+    80% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 50, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 50, 0.1);
+    }
+}
+
+/* 병원정보 모달 실험 */
+#modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+}
+
+/* #modal h2 {
+    margin:0;   
+  } */
+
+#modal button {
+    display: inline-block;
+    width: 100px;
+    margin-left: calc(100% - 100px - 10px);
+}
+
+#modal .modal_content {
+    height: 200px;
+    width: 1500px;
+    margin: auto;
+    /* margin-top: 30px; */
+
+    padding: 20px 10px;
+    background: #fff;
+    border: 5px solid rgba(255, 255, 255, 0.637);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+#modal .modal_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal_opne_btn {
+    width: 200px;
+    height: 50px;
+    margin-right: 50px;
+    /* margin-left:calc(100% - 100px - 10px); */
+}
+
+#modal_close_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.AAA {
+    display: flex;
+}
+
+.AAA-1 {
+    background-color: lightgrey;
+}
+
+.AAA-2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    /* flex-direction: ; */
+}
+
+/* 지역검색 모달 실험 */
+#areaModal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+}
+
+#areaModal button {
+    display: inline-block;
+    width: 100px;
+    /* margin-left: calc(100% - 100px - 10px); */
+}
+
+#areaModal .areaModal_content {
+    height: 200px;
+    width: 500px;
+    margin: auto;
+    z-index: 2;
+    /* margin-top: 30px; */
+
+    padding: 20px 10px;
+    background: #fff;
+    border: 5px solid rgba(255, 255, 255, 0.637);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+#areaModal .modal_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal_opne_btn {
+    width: 200px;
+    height: 50px;
+    margin-right: 50px;
+    /* margin-left:calc(100% - 100px - 10px); */
+}
+
+#modal_close_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+
+
+

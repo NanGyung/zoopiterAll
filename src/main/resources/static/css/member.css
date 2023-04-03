@@ -8,17 +8,14 @@
   grid-template-columns: 3fr minmax(320px, 1024px) 3fr;
   grid-template-rows: max-content;
   grid-template-areas:
-    'l mn r'
-    'l mn r'
-    'l mn r'
-    'l mn r';
+      'l mn r'
+      'l mn r'
+      'l mn r'
+      'l mn r';
   color: var(--color-main-text);
 }
 
-.mn-l,
-.hd-l,
-.fg-l,
-.ft-l {
+.mn-l, .hd-l, .fg-l, .ft-l {
   grid-area: l;
   background-color: var(--color-main-background);
 }
@@ -42,10 +39,7 @@
   padding: 30px;
 }
 
-.hd,
-.fg-banner,
-.container,
-.ft {
+.hd, .fg-banner, .container, .ft{
   grid-area: mn;
 }
 
@@ -55,8 +49,9 @@
 }
 
 #mainTitle a:hover {
-  opacity: 0.5;
+  opacity: .5;
 }
+
 
 /* member_signup 회원가입양식, member_login 로그인 공통 레이아웃 */
 main section {
@@ -72,7 +67,7 @@ main section form {
   padding: 32px;
 }
 
-main section form li {
+main section form li{
   margin: 20px 0;
 }
 
@@ -88,13 +83,13 @@ main form input {
 }
 
 /* 회원가입 양식 member_signup */
-.joinForm form {
+.joinForm form{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#loginBtn {
+#loginBtn{
   width: 100%;
   height: 2.4rem;
   border-radius: 1.2rem;
@@ -109,6 +104,8 @@ main form input {
 #login {
   width: 100%;
 }
+
+
 
 /* input태그 */
 
@@ -144,7 +141,6 @@ input:focus {
 .findUser__menu--ul li,
 .findUser__menu--ul span {
   font-size: 1.2rem;
-  color: white;
   font-weight: bold;
 }
 
@@ -206,16 +202,16 @@ dialog li {
 
 /* member_join */
 
-#mainTitle {
+#mainTitle{
   display: flex;
   margin: 1.2rem 0;
 }
-#mainTitle i {
+#mainTitle i{
   color: var(--color-main-point2);
   margin-right: 10px;
 }
 
-.joinbox {
+.joinbox{
   display: flex;
   margin-top: 1.6rem;
   background-color: var(--color-background);
@@ -226,35 +222,35 @@ dialog li {
   margin: 1.2rem 0;
 }
 
-.scroll-box {
-  height: 28rem;
-  width: 22rem;
-  padding: 1.2em;
-  overflow: auto;
-  border: 1px solid var(--color-grey1);
+.scroll-box{
+    height: 28rem; 
+    width: 22rem;
+    padding: 1.2em;
+    overflow: auto;
+    border: 1px solid var(--color-grey1);
 }
-.scroll-box1 {
+.scroll-box1{
   margin-right: 20px;
 }
 
-.scroll-boxs.box2 {
+.scroll-boxs.box2{
   display: flex;
   justify-content: space-around;
 }
-.box2__info1 {
+.box2__info1{
   margin-right: 10rem;
 }
 .box2__info2 {
   margin-right: 10px;
 }
 
-.joinbox__title p {
+ .joinbox__title p{
   text-align: center;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: bold
 }
 
-#joinboxContents {
+#joinboxContents{
   font-size: 1em;
   font-weight: 300;
 }
@@ -274,45 +270,45 @@ dialog li {
   flex-direction: column;
 }
 
-.joinbox__title {
+.joinbox__title{
   display: flex;
   width: 40rem;
 }
 
-.joinbox__title__owner {
+.joinbox__title__owner{
   flex: 5;
   margin-right: 20px;
 }
 
-.joinbox__title__hospital {
+.joinbox__title__hospital{
   flex: 5;
 }
 
 /* 회원가입버튼 */
-.signBtn {
+.signBtn{
   width: 300px;
   height: 40px;
   border-radius: 20px;
   background-color: var(--color-background);
-  border: 1px solid var(--color-grey1);
+  border: 1px solid var(--color-grey1) ;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   font-weight: bold;
   /* color: var(--color-main-text); */
 }
 
-.signUp {
+.signUp{
   margin: 0 5px;
 }
 
-.signUpH {
-  margin: 0 5px;
+.signUpH{
+  margin: 0 5px; 
 }
 
 #scroll-checkbox {
   margin-right: 10px;
 }
 
-#scroll-checkbox2 {
+#scroll-checkbox2{
   margin: 0 10px;
 }
 
@@ -344,13 +340,3 @@ main form input[type='number' i] {
 input:focus {
   outline: none;
 }
-
-.information {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #ccc;
-}
-<<<<<<< HEAD
-
-=======
->>>>>>> 516b34bd0e936d7e7e7b8edd7233e0e118ffe3cb

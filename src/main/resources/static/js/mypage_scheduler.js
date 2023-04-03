@@ -110,6 +110,12 @@ function calendarInit() {
         // 선택한 날짜 표시
         clickItem.classList.add('today');
 
+        //선택한 날짜 누르면 의료수첩 작성하는 모달 창 띄우는 이벤트
+        clickItem.addEventListener('click', e => {
+          // 모달 창 띄우는 거
+
+        },false);
+
       }, false);
     }
   }

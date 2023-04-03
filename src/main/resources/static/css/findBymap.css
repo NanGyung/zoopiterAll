@@ -1,0 +1,357 @@
+@charset "utf-8";
+@import 'theme/layout.css';
+
+/* 레이아웃 확인용 테두리 */
+/* * {
+  outline: 1px solid green;
+} */
+
+/* 상단 배너 */
+.fg-banner {
+  display: flex;
+  width: auto;
+  padding: 20px;
+  background-color: var(--color-main-background);
+}
+
+.fg-banner__left {
+  flex: 7;
+}
+
+.fg-banner__right {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 상단배너 배경이미지 */
+.fg-banner__right i {
+  font-size: 10rem;
+  color: var(--color-main-point);
+}
+
+.banner-title {
+  line-height: 3rem;
+}
+
+.banner-title p {
+  width: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-background);
+  background-color: var(--color-main-point);
+  border-radius: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.banner-title__search {
+  margin: 20px 0;
+}
+
+.banner-title__search .search-btns {
+  width: auto;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 2rem;
+  border-color: 1px solid var(--color-background);
+  background-color: var(--color-background);
+  font-weight: bold;
+  color: var(--color-main-text);
+}
+
+/* 선택한 지역 표시 */
+.search-res {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.search-res h4 {
+  margin-right: 10px;
+}
+
+#sidoRes {
+  margin-right: 10px;
+}
+
+/* 지역선택 팝업창 */
+#regionSelect {
+  width: 20rem;
+  padding: 10px;
+  border-radius: 2rem;
+  border: 1px solid var(--color-background);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 지역선택 팝업 닫힘 버튼 */
+.regionSelect__closebtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.regionSelect__closebtn i {
+  cursor: pointer;
+}
+
+.regionSelect__address {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.regionSelect__address select {
+  width: 8rem;
+  margin-right: 10px;
+  border-radius: 2rem;
+}
+
+#regionBtn {
+  width: 4rem;
+  padding: 4px;
+  border-radius: 2rem;
+  border: 1px solid var(--color-main-point);
+  background-color: var(--color-main-point);
+  color: var(--color-background);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* 메인영역 */
+
+/* 지도 */
+#map {
+  width: auto;
+  height: 500px;
+  background-color: var(--color-background2);
+}
+
+/* 지도 밑 메뉴 */
+.bottom-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: var(--color-main-background);
+}
+/* 펫태그 적용 버튼 */
+#petTagBtn {
+  width: 80px;
+  margin-left: 10px;
+  border-color: inherit;
+  border-radius: 2rem;
+  background-color: var(--color-background);
+}
+
+/* 병원 목록 필터(셀렉트박스) */
+#listFilter {
+  border-radius: 2rem;
+  padding: 4px;
+}
+
+/* 병원목록 */
+.res-list {
+  padding: 20px;
+  background-color: var(--color-background2);
+  margin-top: 20px;
+}
+
+.list-content {
+  display: flex;
+  align-items: center;
+}
+
+/* 병원이미지 */
+.list-content__img {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+  padding: 10px;
+  background-color: var(--color-main-point);
+  border-radius: 1.4rem;
+  margin-right: 20px;
+}
+/* 병원 기본 이미지*/
+.list-content__img i {
+  font-size: 6rem;
+  color: var(--color-main-background);
+}
+
+/* 병원정보 */
+.list-content__info {
+  flex: 7;
+  margin-right: 20px;
+}
+
+.list-content__info p {
+  margin: 10px 0;
+}
+
+/* 병원 주소, 거리 */
+.info__address {
+  display: flex;
+  align-items: center;
+}
+
+/* 병원주소 */
+#region {
+  margin-right: 10px;
+}
+
+/* 병원이름, 평점 */
+.info__grade {
+  display: flex;
+  align-items: center;
+}
+
+/* 병원이름 */
+.info__grade h3 {
+  margin-right: 10px;
+}
+
+/* 평점 별아이콘 */
+.info__grade i {
+  margin-right: 10px;
+}
+
+/* 펫 태그  */
+.info__petTag {
+  display: flex;
+}
+
+.info__petTag p {
+  margin-right: 10px;
+  color: var(--color-main-point2);
+  font-weight: bold;
+}
+
+/* 자세히보기 버튼 */
+.list-content__btn {
+  flex: 1;
+  height: 80px;
+  border-radius: 4rem;
+  border: 1px solid var(--color-main-background);
+  background-color: var(--color-main-background);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  color: var(--color-main-text);
+  font-weight: bold;
+}
+
+/* 병원 상세정보 팝업 */
+.list-details {
+  padding: 0;
+  border: 1px solid var(--color-background);
+  border-radius: 1.2rem;
+  height: 440px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*  상세정보 상단 */
+.list-details__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-main-background);
+  padding: 10px;
+}
+
+/* 상세정보 팝업 닫힘버튼 */
+.list-details__header i {
+  cursor: pointer;
+  color: var(--color-main-point2);
+  font-size: 1.2rem;
+}
+
+/* 상세정보 내용 */
+.list-details__contents {
+  display: flex;
+  padding: 20px;
+  height: 90%;
+  box-sizing: border-box;
+}
+
+.details__left {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.details__left__img {
+  flex: 6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-main-point);
+}
+/* 기본이미지 */
+.details__left__img i {
+  font-size: 10rem;
+  color: var(--color-main-background);
+}
+
+.details__left__time {
+  display: flex;
+  flex: 4;
+  margin-top: 20px;
+}
+
+/* 영업시간 타이틀 */
+.details__left__time h4 {
+  flex: 5;
+  align-self: flex-start;
+  margin: 0;
+}
+
+/* 영업시간 컨텐츠 */
+.details__left__time ul {
+  flex: 5;
+}
+
+.details__info {
+  flex: 6;
+  padding-left: 20px;
+}
+
+/* 동물병원이름, 평점 */
+.details__info__grade {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.details__info__grade h3 {
+  margin-right: 10px;
+}
+
+/* 상세정보 평점 별 아이콘 */
+.details__info__grade i {
+  color: #f26d3e;
+  margin-right: 5px;
+}
+
+/* 동물병원 주소, 거리 */
+.details__info__address {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.details__info__petTag {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* 펫 태그 */
+.details__info__petTag p {
+  margin-right: 10px;
+  color: var(--color-main-point);
+}
+
+/* 기타 정보 */
+.details__info__other {
+  margin-bottom: 30px;
+}

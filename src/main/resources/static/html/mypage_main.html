@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="메인화면" />
+  <meta name="keywords" content="pet hospital search" />
+  <meta name="author" content="2팀" />
+  <title>my page</title>
+  <!--  마이페이지 css -->
+  <link rel="stylesheet" href="../css/mypage/mypage_main.css" />
+  <!--  폰트 어썸 : 로고 -->
+  <script src="https://kit.fontawesome.com/6631aa96e6.js" crossorigin="anonymous"></script>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="hd-l"></div>
+    <header class="hd">
+      <nav class="hd__menu">
+        <ul class="hd__menu__list1">
+          <li id="logo">
+            <a href="index.html">
+              <i class="fa-solid fa-dog fa-2x"></i>
+              <h3>슬기로운 반려생활</h3>
+            </a>
+          </li>
+          <li class="hd__menu__list1__item list1-item1">
+            <a href="#">펫병원</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#">병원찾기</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item2">
+            <a href="#">게시판</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#">커뮤니티</a></li>
+              <li><a href="./review.html">병원후기</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item3" id="myPage">
+            <a href="./mypage_main.html">마이페이지</a>
+          </li>
+          <div class="hd__menu__list1__item list1-item4" id="join">
+            <li><a href="./member_login.html">로그인</a></li>
+            |
+            <li><a href="./member_join.html">회원가입</a></li>
+          </div>
+        </ul>
+        <a href="#" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </nav>
+    </header>
+    <div class="hd-r"></div>
+
+    <div class="fg-l"></div>
+    <figure class="fg-banner">
+      <div class="user-profile">
+        <p>마이페이지</p>
+        <h2>반가워요</h2>
+        <div class="profile-list">
+          <div class="profile-area">
+            <div class="upload-area">
+              <img src="../img/img_profile1.png" alt="" />
+            </div>
+            <div class="upload-area2" id="">
+              <div class="pet-name">반려동물이름</div>
+              <div class="pet-info">정보</div>
+            </div>
+          </div>
+          <div class="profile-make">
+            <a href="#">
+              <img src="../img/add_circle.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <div class="fg-r"></div>
+
+    <div class="mn-l"></div>
+    <main class="container">
+      <div class="main-gnb">
+        <div class="pc">
+          <ul>
+            <li><a href="./mypage_main.html">보호자 정보관리</a></li>
+          </ul>
+          <!-- <hr width="100" color="#000" noshade /> -->
+          <ul>
+            <li><a href="./mypage_pet_reg.html">반려동물 정보관리</a></li>
+          </ul>
+          <ul>
+            <li>
+              <a href="">병원후기</a>
+            </li>
+            <li>
+              <a href="">게시글</a>
+            </li>
+          </ul>
+          <ul>
+            <li><a href="">병원후기</a></li>
+            <li><a href="">게시글/댓글</a></li>
+          </ul>
+          <ul>
+            <li><a href="">동물병원</a></li>
+            <li><a href="">스크랩 목록</a></li>
+          </ul>
+          <ul>
+            <li>
+              <a href="./mypage_scheduler2.html">의료수첩 관리</a>
+              <!-- <a onclick="fetchPage('my-schedule.html','.myPage_content')">의료수첩 관리</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mypage_content">
+        <div class="myprofile-top">보호자 정보관리</div>
+        <div class="myprofile-list">
+          <ul class="list-frm">
+            <div class="list">사진</div>
+            <div class="list-frm">
+              <div class="myprofile-list-image">
+                <img src="../img/img_profile1.png" alt="" />
+                <li>
+                  <div class="myprofile-list-text">
+                    회원님을 알수있는 사진을 등록해주세요 <br />
+                    등록된 사진은 회원님의 게시물이나 댓글들에 사용됩니다
+                  </div>
+                </li>
+              </div>
+            </div>
+          </ul>
+
+          <div class="list-frm">
+            <div class="list">아이디</div>
+            <div class="my-info">aaa1234</div>
+          </div>
+          <div class="list-frm">
+            <div class="list">비밀번호</div>
+            <div class="my-info">aaa1234</div>
+          </div>
+          <div class="list-frm">
+            <div class="list">닉네임</div>
+            <div class="my-info">건강한치킨</div>
+          </div>
+          <div class="list-frm">
+            <div class="list">이메일</div>
+            <div class="my-info">aaa1234@naver.com</div>
+          </div>
+          <div class="list-frm">
+            <div class="list">전화번호</div>
+            <div class="my-info">010-1234-5678</div>
+          </div>
+          <div class="list-frm">
+            <div class="list">회원정보수정</div>
+            <div class="my-info">
+              <div class="myprofile-button">
+                <button input type="button" class="btn-frm" id="btn_modify" onclick="modify()" value="confirm">
+                  수정하기
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="list-frm">
+            <div class="list">회원탈퇴</div>
+            <div class="my-info">
+              <div class="myprofile-button">
+                <button type="button" class="btn-frm" id="btn_withdraw" onclick="withdraw()" value="confirm">
+                  탈퇴하기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="myprofile-button">
+            <button
+              type="button"
+              class="btn-frm"
+              id="btn_modify"
+              onclick="modify()"
+              value="confirm"
+            >
+              수정하기
+            </button>
+          </div> -->
+      </div>
+    </main>
+    <div class="mn-r"></div>
+
+    <div class="ft-l"></div>
+    <footer class="ft">
+      <div class="ft__buttons f-item1">
+        <a href="index.html">슬기로운 반려생활</a>
+      </div>
+      <div class="ft__mid-area">
+        <div class="ft__buttons f-item2">
+          <a href="#">개인정보처리방침</a>
+        </div>
+        <div class="ft__buttons f-item3">
+          <a href="#">이용약관</a>
+        </div>
+        <div class="ft__buttons f-item4">
+          <a href="#">광고문의</a>
+        </div>
+      </div>
+      <div class="ft__info">
+        <p>슬기로운 반려생활</p>
+        <p>주소 : 울산시 자바 개발구 KH빌딩 5층 502호</p>
+        <p>광고문의 052-123-4567</p>
+      </div>
+      <div class="ft__copy">
+        Copyright© 2023 슬반생.All right reserved. Designed by 슬반생
+      </div>
+    </footer>
+    <div class="ft-r"></div>
+  </div>
+  <!-- 햄버거 메뉴 구현 -->
+  <script src="../js/hambuger.js"></script>
+  <!-- my page 개인정보 수정화면js-->
+  <script src="../js/mypage_main.js"></script>
+  <!-- my page 의료수첩js-->
+  <script type="text/javascript" src="../js/mypage_scheduler2.js"></script>
+  <!-- 지정한 태그의 컨텐츠를 다른 컨텐츠로 바꿈 -->
+  <script src="../js/fetch.js"></script>
+  <!-- 이미지 업로드 -->
+  <script src="../js/mypage_imgUpload.js"></script>
+</body>
+
+</html>

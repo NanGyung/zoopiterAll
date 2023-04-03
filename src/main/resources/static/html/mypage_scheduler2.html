@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="description" content="메인화면" />
+  <meta name="keywords" content="pet hospital search" />
+  <meta name="author" content="2팀" />
+  <title>my page</title>
+  <!--  마이페이지 css -->
+  <link rel="stylesheet" href="../css/mypage/mypage_scheduler.css" />
+  <!--  폰트 어썸 : 로고 -->
+  <script src="https://kit.fontawesome.com/6631aa96e6.js" crossorigin="anonymous"></script>
+
+  <!-- jquery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- fullcalendar CDN -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
+  <!-- fullcalendar 언어 CDN -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
+
+
+<body>
+  <div class="wrap">
+    <div class="hd-l"></div>
+    <header class="hd">
+      <nav class="hd__menu">
+        <ul class="hd__menu__list1">
+          <li id="logo">
+            <a href="index.html">
+              <i class="fa-solid fa-dog fa-2x"></i>
+              <h3>슬기로운 반려생활</h3>
+            </a>
+          </li>
+          <li class="hd__menu__list1__item list1-item1">
+            <a href="#">펫병원</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#">병원찾기</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item2">
+            <a href="#">게시판</a>
+            <ul class="hd__menu__list1__item__submenu">
+              <li><a href="#">커뮤니티</a></li>
+              <li><a href="#">병원후기</a></li>
+              <li><a href="#">펫가이드</a></li>
+            </ul>
+          </li>
+          <li class="hd__menu__list1__item list1-item3" id="myPage">
+            <a href="./mypage_main.html">마이페이지</a>
+          </li>
+          <div class="hd__menu__list1__item list1-item4" id="join">
+            <li><a href="#">로그인</a></li>
+            |
+            <li><a href="#">회원가입</a></li>
+          </div>
+        </ul>
+        <a href="#" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+      </nav>
+    </header>
+    <div class="hd-r"></div>
+
+    <div class="fg-l"></div>
+    <figure class="fg-banner">
+      <div class="user-profile">
+        <p>마이페이지</p>
+        <h2>반가워요</h2>
+        <div class="profile-list">
+          <div class="profile-area">
+            <div class="upload-area">
+              <img src="../img/img_profile1.png" alt="" />
+            </div>
+            <div class="upload-area2" id="">
+              <div class="pet-name">반려동물이름</div>
+              <div class="pet-info">정보</div>
+            </div>
+          </div>
+          <div class="profile-make">
+            <a href="#">
+              <img src="../img/add_circle.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <div class="fg-r"></div>
+
+    <div class="mn-l"></div>
+    <main class="container">
+      <!-- 사이드메뉴 -->
+      <div class="main-gnb">
+        <div class="pc">
+          <ul>
+            <li><a href="./mypage_main.html">보호자 정보관리</a></li>
+          </ul>
+          <!-- <hr width="100" color="#000" noshade /> -->
+          <ul>
+            <li><a href="./mypage_pet_reg.html">반려동물 정보관리</a></li>
+          </ul>
+          <ul>
+            <li>
+              <a href="">병원후기</a>
+            </li>
+            <li>
+              <a href="">게시글</a>
+            </li>
+          </ul>
+          <ul>
+            <li><a href="">병원후기</a></li>
+            <li><a href="">게시글/댓글</a></li>
+          </ul>
+          <ul>
+            <li><a href="">동물병원</a></li>
+            <li><a href="">스크랩 목록</a></li>
+          </ul>
+          <ul>
+            <li><a href="./mypage_scheduler.html">의료수첩 관리</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 메인컨텐츠 -->
+      <div class="mypage_content">
+        <div class="myprofile-top">의료수첩 관리</div>
+        <!-- calendar 태그 -->
+        <div id='calendar-container'>
+          <div id='calendar'></div>
+        </div>
+      </div>
+    </main>
+    <div class="mn-r"></div>
+
+    <div class="ft-l"></div>
+    <footer class="ft">
+      <div class="ft__buttons f-item1">
+        <a href="index.html">슬기로운 반려생활</a>
+      </div>
+      <div class="ft__mid-area">
+        <div class="ft__buttons f-item2">
+          <a href="#">개인정보처리방침</a>
+        </div>
+        <div class="ft__buttons f-item3">
+          <a href="#">이용약관</a>
+        </div>
+        <div class="ft__buttons f-item4">
+          <a href="#">광고문의</a>
+        </div>
+      </div>
+      <div class="ft__info">
+        <p>슬기로운 반려생활</p>
+        <p>주소 : 울산시 자바 개발구 KH빌딩 5층 502호</p>
+        <p>광고문의 052-123-4567</p>
+      </div>
+      <div class="ft__copy">
+        Copyright© 2023 슬반생.All right reserved. Designed by 슬반생
+      </div>
+    </footer>
+    <div class="ft-r"></div>
+  </div>
+  <!-- 햄버거 메뉴 구현 -->
+  <script src="../js/hambuger.js"></script>
+  <!-- my page -->
+  <script type="text/javascript" src="../js/mypage_scheduler.js"></script>
+</body>
+<!-- 캘린더 -->
+<!-- <script src="../js/scheduler2.js"></script> -->
+<script src="../js/mypage_scheduler.js"></script>
+<!-- 이미지 업로드  -->
+<script src="../js/mypage_imgUpload.js"></script>
+</html>

@@ -8,18 +8,11 @@
   <meta name="description" content="메인화면" />
   <meta name="keywords" content="pet hospital search" />
   <meta name="author" content="2팀" />
-  <title>슬기로운 반려생활</title>
-  <!--  메인화면 css -->
-  <link rel="stylesheet" href="../css/main.css" />
-  <!--  이미지슬라이더 js -->
-  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <title>병원후기</title>
+  <!--  리뷰게시판 메인 css -->
+  <link rel="stylesheet" href="../css/board_review.css" />
   <!--  폰트 어썸 : 로고 -->
   <script src="https://kit.fontawesome.com/6631aa96e6.js" crossorigin="anonymous"></script>
-  <!--  이미지 슬라이더 구현 js -->
-  <script src="../js/imgSlider.js"></script>
 </head>
 
 <body>
@@ -35,7 +28,7 @@
             </a>
           </li>
           <li class="hd__menu__list1__item list1-item1">
-            <a href="#">펫병원</a>
+            <a href="findBymap.html">펫병원</a>
             <ul class="hd__menu__list1__item__submenu">
               <li><a href="findBymap.html">병원찾기</a></li>
             </ul>
@@ -44,7 +37,7 @@
             <a href="#">게시판</a>
             <ul class="hd__menu__list1__item__submenu">
               <li><a href="#">커뮤니티</a></li>
-              <li><a href="./board_review.html">병원후기</a></li>
+              <li><a href="board_review.html">병원후기</a></li>
             </ul>
           </li>
           <li class="hd__menu__list1__item list1-item3" id="myPage">
@@ -64,16 +57,12 @@
     <div class="hd-r"></div>
 
     <div class="fg-l"></div>
-    <figure class="fg-banner">
-      <div><img src="../img/banner1.png" alt="" /></div>
-      <div><img src="../img/banner2.png" alt="" /></div>
-      <div><img src="../img/banner3.png" alt="" /></div>
-      <div><img src="../img/banner4.png" alt="" /></div>
-    </figure>
+
     <div class="fg-r"></div>
 
     <div class="mn-l"></div>
     <main class="container">
+      <!-- 푸터 팝업 -->
       <!-- 개인정보 약관 -->
       <dialog id="ft-info1">
         <div class="ft-info1__title">
@@ -278,24 +267,7 @@
           <h3>광고 소개서</h3>
           <button id="closeBtn3">X</button>
           <div class="ft-info3__content">
-            <ul>
-              <li>
-                <label for=""></label>
-                <input type="text">
-              </li>
-              <li>
-                <label for=""></label>
-                <input type="text">
-              </li>
-              <li>
-                <label for=""></label>
-                <input type="text">
-              </li>
-              <li>
-                <label for=""></label>
-                <input type="text">
-              </li>
-            </ul>
+
           </div>
         </div>
         <div id="info3Txt">
@@ -303,89 +275,285 @@
         </div>
       </dialog>
 
-      <section class="container__content item1">
-        <article>
-          <p id="subTitle">펫 병원</p>
-          <div class="item1__title">
-            <p>우리 반려동물의</p>
-            <p>병원을 찾아줄 수 있어요.</p>
+      <!-- 메인 컨텐츠 -->
+      <div class="main-list">
+        <div class="list">
+          <div class="main">병원 후기 목록</div>
+          <div class="selectBox">
+            <select class="select">
+              <option value="viewCnt">조회순</option>
+              <option value="latest">최신순</option>
+              <option value="like">좋아요</option>
+            </select>
+            <span class="icoArrow">
+              <i class="fa-solid fa-arrow-down"></i>
+            </span>
           </div>
-          <p style="margin: 30px 0px">
-            우리 집 주변에 동물병원이 이렇게 많은지 몰랐죠? 하지만 소동물까지
-            진료하는 곳을 찾기가 쉽지 않답니다. 슬기로운 반려생활에선 다양한
-            품종을 진료하는 병원을 보여드려요.
-          </p>
-          <div class="item1__button">
-            <a href="findBymap.html">병원 더 찾아보기</a>
+        </div>
+      </div>
+
+      <div class="sort">
+        <div class="search">
+          <!-- 동물 태그 선택 -->
+          <div class="left">
+            <div class="tag">동물태그</div>
+            <form class="selectBox" name="petTag">
+              <!-- <select class="select" name="pet">
+                <option value="default">동물유형</option>
+                <option value="dog">강아지</option>
+                <option value="cat">고양이</option>
+                <option value="small">소동물</option>
+                <option value="other">기타</option>
+              </select>
+              <span class="icoArrow">
+                <i class="fa-solid fa-arrow-down"></i>
+              </span> -->
+              <input type="checkbox" name="dog"> 강아지
+              <input type="checkbox" name="cat"> 고양이
+              <input type="checkbox" name="small"> 소동물
+              <input type="checkbox" name="other"> 기타
+              <button id="checkBtn">적용</button>
+            </form>
+
           </div>
-        </article>
-        <aside>
-          <div class="item1__contents content1">
-            <img src="../img/img_hospital01.png" alt="hospital_img1" />
+          <div class="input">
+            <input type="text" />
+            <button id="searchBtn">검색</button>
           </div>
-          <div class="item1__contents content2">
-            <img src="../img/img_hospital02.png" alt="hospital_img2" />
-          </div>
-        </aside>
-      </section>
-      <section class="container__content item2">
-        <article>
-          <p id="subTitle">펫 병원 후기</p>
-          <div class="item2__title">
-            <p>우리 아기가 방문한</p>
-            <p>생생한 병원후기!!</p>
-          </div>
-          <p style="margin: 30px 0px">
-            정확한 후기로 펫오너님들과 아이들의 건강과 안전을 지켜드릴게요!
-          </p>
-          <div class="item2__button">
-            <a href="./board_review.html">펫 병원후기 더보기</a>
-          </div>
-        </article>
-        <aside>
-          <div class="item2__slider">
-            <div>
-              <a href="./board_review.html">
-                <img src="../img/img_review01.jpg" alt="review01" />
-              </a>
+        </div>
+      </div>
+
+      <!-- 선택한 동물태그 -->
+      <div class="tag-list">
+      </div>
+      <div class="tag-list-r"></div>
+
+      <div class="main-nick-l"></div>
+      <!-- 게시글 영역 -->
+      <div class="main-nick">
+        <!-- 게시글 -->
+        <div class="post">
+          <div class="info">
+            <div class="pro">
+              <div class="img">
+                <!--  기본프로필 이미지 -->
+                <i class="fa-solid fa-circle-user" style="color: #d1d1d1;"></i>
+              </div>
+              <div class="name">
+                <div>작성자명</div>
+                <div id="clock">
+                  게시글 작성 시간
+                </div>
+              </div>
             </div>
-            <div>
-              <a href="./board_review.html">
-                <img src="../img/img_review02.jpg" alt="review02" />
-              </a>
-            </div>
-            <div>
-              <a href="./board_review.html">
-                <img src="../img/img_review03.jpg" alt="review03" />
-              </a>
-            </div>
-            <div>
-              <a href="./board_review.html">
-                <img src="../img/img_review04.jpg" alt="review04" />
-              </a>
+            <div class="sub">
+              <div class="num">
+                <div class="num-cnt">
+                  조회수
+                  <p>4444</p>
+                </div>
+                <div class="like-icons">
+                  <!--  좋아요 누르기 전 아이콘 -->
+                  <i class="fa-regular fa-heart"></i>
+                  <!-- 좋아요 누른 후 아이콘 -->
+                  <!-- <i class="fa-solid fa-heart"></i> -->
+                </div>
+              </div>
+              <div class="tag">#강아지</div>
             </div>
           </div>
-        </aside>
-      </section>
-      <section class="container__content item3">
-        <article>
-          <p id="subTitle">펫 커뮤니티</p>
-          <div class="item3__title">
-            <p>슬기로운 반려생활에서</p>
-            <p>우리 아이와의 추억을 저장해요 :)</p>
+          <div class="preview">
+            <div class="img">
+              <!-- <img src="" style="max-width: 100%; height: auto" /> -->
+              <!-- 기본이미지 -->
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <div class="review">
+              <div class="hos">슬기로운 동물병원</div>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aperiam laudantium architecto rerum nam harum error eius qui
+                  incidunt, illo veritatis ad. Quisquam perspiciatis asperiores
+                  quis debitis minus possimus. Expedita, quasi?
+                </p>
+              </div>
+            </div>
           </div>
-          <p style="margin: 30px 0px">
-            슬기로운 반려생활에서는 펫오너분들의 이야기를 공유할 수 있어요!
-            우리 아이들과의 이야기를 함께 나눠보세요 !
-          </p>
-          <div class="item3__button">
-            <a href="#">추억 엿보기</a>
+        </div>
+        <!-- 게시글 -->
+        <div class="post">
+          <div class="info">
+            <div class="pro">
+              <div class="img">
+                <!--  기본프로필 이미지 -->
+                <i class="fa-solid fa-circle-user" style="color: #d1d1d1;"></i>
+              </div>
+              <div class="name">
+                <div>작성자명</div>
+                <div id="clock">
+                  게시글 작성 시간
+                </div>
+              </div>
+            </div>
+            <div class="sub">
+              <div class="num">
+                <div class="num-cnt">
+                  조회수
+                  <p>4444</p>
+                </div>
+                <div class="like-icons">
+                  <!--  좋아요 누르기 전 아이콘 -->
+                  <i class="fa-regular fa-heart"></i>
+                  <!-- 좋아요 누른 후 아이콘 -->
+                  <!-- <i class="fa-solid fa-heart"></i> -->
+                </div>
+              </div>
+              <div class="tag">#강아지</div>
+            </div>
           </div>
-        </article>
-        <aside>
-          <div class="item3__img"></div>
-        </aside>
-      </section>
+          <div class="preview">
+            <div class="img">
+              <!-- <img src="" style="max-width: 100%; height: auto" /> -->
+              <!-- 기본이미지 -->
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <div class="review">
+              <div class="hos">슬기로운 동물병원</div>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aperiam laudantium architecto rerum nam harum error eius qui
+                  incidunt, illo veritatis ad. Quisquam perspiciatis asperiores
+                  quis debitis minus possimus. Expedita, quasi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div class="post">
+          <div class="info">
+            <div class="pro">
+              <div class="img">
+                <!--  기본프로필 이미지 -->
+                <i class="fa-solid fa-circle-user" style="color: #d1d1d1;"></i>
+              </div>
+              <div class="name">
+                <div>작성자명</div>
+                <div id="clock">
+                  게시글 작성 시간
+                </div>
+              </div>
+            </div>
+            <div class="sub">
+              <div class="num">
+                <div class="num-cnt">
+                  조회수
+                  <p>4444</p>
+                </div>
+                <div class="like-icons">
+                  <!--  좋아요 누르기 전 아이콘 -->
+                  <i class="fa-regular fa-heart"></i>
+                  <!-- 좋아요 누른 후 아이콘 -->
+                  <!-- <i class="fa-solid fa-heart"></i> -->
+                </div>
+              </div>
+              <div class="tag">#강아지</div>
+            </div>
+          </div>
+          <div class="preview">
+            <div class="img">
+              <!-- <img src="" style="max-width: 100%; height: auto" /> -->
+              <!-- 기본이미지 -->
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <div class="review">
+              <div class="hos">슬기로운 동물병원</div>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aperiam laudantium architecto rerum nam harum error eius qui
+                  incidunt, illo veritatis ad. Quisquam perspiciatis asperiores
+                  quis debitis minus possimus. Expedita, quasi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div class="post">
+          <div class="info">
+            <div class="pro">
+              <div class="img">
+                <!--  기본프로필 이미지 -->
+                <i class="fa-solid fa-circle-user" style="color: #d1d1d1;"></i>
+              </div>
+              <div class="name">
+                <div>작성자명</div>
+                <div id="clock">
+                  게시글 작성 시간
+                </div>
+              </div>
+            </div>
+            <div class="sub">
+              <div class="num">
+                <div class="num-cnt">
+                  조회수
+                  <p>4444</p>
+                </div>
+                <div class="like-icons">
+                  <!--  좋아요 누르기 전 아이콘 -->
+                  <i class="fa-regular fa-heart"></i>
+                  <!-- 좋아요 누른 후 아이콘 -->
+                  <!-- <i class="fa-solid fa-heart"></i> -->
+                </div>
+              </div>
+              <div class="tag">#강아지</div>
+            </div>
+          </div>
+          <div class="preview">
+            <div class="img">
+              <!-- <img src="" style="max-width: 100%; height: auto" /> -->
+              <!-- 기본이미지 -->
+              <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <div class="review">
+              <div class="hos">슬기로운 동물병원</div>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aperiam laudantium architecto rerum nam harum error eius qui
+                  incidunt, illo veritatis ad. Quisquam perspiciatis asperiores
+                  quis debitis minus possimus. Expedita, quasi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- 게시판 페이지 -->
+      <div class="page">
+        <button type="button" class="prevBtn" onClick="location.href='PAGENAME.html'">
+          이전
+        </button>
+        <button type="button" class="pageBtns item1 active" onClick="location.href='PAGENAME.html'">
+          1
+        </button>
+        <button type="button" class="pageBtns item2" onClick="location.href='PAGENAME.html'">
+          2
+        </button>
+        <button type="button" class="pageBtns item3" onClick="location.href='PAGENAME.html'">
+          3
+        </button>
+        <button type="button" class="pageBtns item4" onClick="location.href='PAGENAME.html'">
+          4
+        </button>
+        <button type="button" class="nextBtn" onClick="location.href='PAGENAME.html'">
+          다음
+        </button>
+      </div>
     </main>
     <div class="mn-r"></div>
 
@@ -420,6 +588,8 @@
   <script src="../js/hambuger.js"></script>
   <!-- footer 개인정보처리방침 모달 구현 -->
   <script src="../js/ft_modal.js"></script>
+  <!-- 동물 태그 선택 구현 -->
+  <script src="../js/review.js"></script>
 </body>
 
 </html>
