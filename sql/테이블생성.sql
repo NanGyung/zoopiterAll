@@ -58,6 +58,45 @@ insert into code (code_id,decode,pcode_id,useyn) values ('B0101','병원후기','B01
 insert into code (code_id,decode,pcode_id,useyn) values ('B0102','커뮤니티','B01','Y');
 commit;
 
+------------
+--업로드 파일
+------------
+CREATE TABLE UPLOADFILE(
+  UPLOADFILE_ID             NUMBER,          --파일 아이디(내부관리용)
+  CODE                      varchar2(11),    --분류 코드(커뮤니티: F0101, 병원후기: F0102, 회원프로필: F0103)
+  RID                       varchar2(10),    --참조번호 --해당 첨부파일이 첨부된 게시글의 순번
+  STORE_FILENAME            varchar2(50),    --보관파일명
+  UPLOAD_FILENAME           varchar2(50),    --업로드파일명
+  FSIZE                     varchar2(45),    --파일크기 
+  FTYPE                     varchar2(50),    --파일유형
+  CDATE                     timestamp default systimestamp, --작성일
+  UDATE                     timestamp default systimestamp  --수정일
+);
+--기본키생성
+alter table UPLOADFILE add Constraint UPLOADFILE_UPLOADFILE_ID_pk primary key (UPLOADFILE_ID);
+--외래키
+alter table UPLOADFILE add constraint  UPLOADFILE_CODE_fk
+    foreign key(CODE) references CODE(CODE_ID);
+
+--제약조건
+alter table UPLOADFILE modify CODE constraint UPLOADFILE_CODE_nn not null;
+alter table UPLOADFILE modify RID constraint UPLOADFILE_RID_nn not null;
+alter table UPLOADFILE modify STORE_FILENAME constraint UPLOADFILE_STORE_FILENAME_nn not null;
+alter table UPLOADFILE modify UPLOAD_FILENAME constraint UPLOADFILE_UPLOAD_FILENAME_nn not null;
+-- not null 제약조건은 add 대신 modify 명령문 사용
+
+--시퀀스 생성
+create sequence UPLOADFILE_UPLOADFILE_ID_SEQ;
+
+--샘플데이터 of UPLOADFILE
+insert into UPLOADFILE (UPLOADFILE_ID, CODE , STORE_FILENAME, UPLOAD_FILENAME, FSIZE) 
+ values(UPLOADFILE_UPLOADFILE_ID_SEQ.NEXTVAL, 'F0101', 'F0101.png', '커뮤니티이미지첨부1.png','100','image/png');
+
+COMMIT;
+
+--테이블 구조 확인
+DESC UPLOADFILE;
+
 -------
 --회원
 -------
@@ -230,7 +269,7 @@ alter table HOSPITAL_INFO modify H_CREATE_DATE constraint HOSPITAL_INFO_H_CREATE
 --시퀀스 생성
 create sequence HOSPITAL_INFO_H_NUM_seq;
 
-
+--------  아래 샘플데이터 생성 전에 hospital_data 샘플데이터 먼저 생성해야함!!!!  ----------
 --샘플데이터 of hospital_info
 insert into hospital_info (H_NUM , HD_ID, H_ID, H_NAME, H_TEL, H_PLIST, H_TIME, H_INFO, H_ADDINFO)
     values(
@@ -338,8 +377,10 @@ CREATE TABLE PET_NOTE(
   PET_STMP           VARCHAR2(60),  --동물 증상
   PET_SIGNICE        VARCHAR2(60),  --유의사항
   PET_NEXTDATE       DATE,           --다음 예약일
-  PET_VAC            VARCHAR2(15) default 'p0101'   
+  PET_VAC            VARCHAR2(15) default 'p0101',   
   --기초접종 여부(미접종(P0101), 접종 전(P0102), 접종 중(P0103), 접종 완료(P0104))
+  PET_DATE           VARCHAR2(15),  --작성 날짜(캘린더 선택날짜)
+  PET_EDITDATE       VARCHAR2(15)   --수정 날짜
 );
 --기본키생성
 alter table PET_NOTE add Constraint PET_NOTE_NOTE_NUM_pk primary key (NOTE_NUM);
@@ -353,6 +394,8 @@ alter table PET_NOTE add constraint  PET_NOTE_PET_VAC_fk
 alter table PET_NOTE modify USER_ID constraint PET_NOTE_USER_ID_nn not null;
 alter table PET_NOTE modify PET_H_CHECK constraint PET_NOTE_PET_H_CHECK_nn not null;
 alter table PET_NOTE modify PET_NAME constraint PET_NOTE_PET_NAME_nn not null;
+alter table PET_NOTE modify PET_DATE constraint PET_NOTE_PET_DATE_nn not null;
+alter table PET_NOTE modify PET_EDITDATE constraint PET_NOTE_PET_EDITDATE_nn not null;
 alter table PET_NOTE add constraint PET_NOTE_PET_YN_ck check(PET_YN in ('Y','N'));
 alter table PET_NOTE add constraint PET_NOTE_PET_GENDER_ck check(PET_GENDER in ('M','F'));
 -- not null 제약조건은 add 대신 modify 명령문 사용
@@ -360,7 +403,7 @@ alter table PET_NOTE add constraint PET_NOTE_PET_GENDER_ck check(PET_GENDER in (
 --시퀀스 생성
 create sequence PET_NOTE_NOTE_NUM_seq;
 
---샘플데이터 of PET_NOTE -- 반려동물 성별 추가하니 
+--샘플데이터 of PET_NOTE 
 insert into PET_NOTE (
     NOTE_NUM , USER_ID, PET_NAME, PET_TYPE, PET_GENDER, PET_BIRTH, PET_YN, PET_WEIG, PET_H_CHECK, 
     PET_H_NAME, PET_H_TEACHER, PET_REASON, PET_STMP, PET_SIGNICE, PET_NEXTDATE, PET_VAC)
@@ -540,5 +583,9 @@ COMMIT;
 
 --테이블 구조 확인
 DESC C_BBSC;
+
+
+
+
 
 
