@@ -16,3 +16,6 @@
     2. 반려동물정보 수정 : pet_info테이블 update 문 (마이페이지-반려동물 정보관리)
     3. 의료수첩 작성 시 반려동물 기본정보 불러오는 부분 : pet_note 테이블 select 문 (pet_info(반려동물 기본정보)와 pet_note(의료수첩) join )
     - 예) select pet_info.pet_name from pet_info, pet_note where pet_info.user_id = pet_note.user_id;
+
+\*\* 주의사항 : 테이블 생성.sql 사용할 때 병원정보테이블(hospital_info) 샘플데이터 insert 문은  
+ 동물병원 공공데이터 테이블(hospital_data) 샘플데이터(동물병원데이터(울산,부산).sql)를 먼저 넣고 실행하여야 합니다!
