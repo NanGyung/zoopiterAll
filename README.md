@@ -23,7 +23,7 @@
 
     1. 회원정보 수정 : member테이블 update 문 (마이페이지-보호자 정보관리)
     2. 반려동물정보 수정 : pet_info테이블 update 문 (마이페이지-반려동물 정보관리)
-    3. 의료수첩 작성 시 반려동물 기본정보 불러오는 부분 : pet_note 테이블 select 문 (pet_info(반려동물 기본정보)와 pet_note(의료수첩) join )
+    3. 의료수첩 작성 시 반려동물 기본정보 불러오는 부분 : pet_note 테이블 select 문 (pet_info(반려동물 기본정보)와 pet_note(의료수첩) join )  
        [ query문 예시 ]
 
     - 예) select pet_info.pet_name from pet_info, pet_note where pet_info.user_id = pet_note.user_id;
